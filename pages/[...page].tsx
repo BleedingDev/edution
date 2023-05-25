@@ -54,7 +54,7 @@ export default function Page({ page }: any) {
   // If the page is still being generated,
   // show a loading message
   if (router.isFallback) {
-    return <h1>Page is loading...</h1>;
+    return <h1>Loading...</h1>;
   }
 
   // If the page content is not available
