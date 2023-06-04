@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label";
 import { Builder } from "@builder.io/react";
 import { iconUriList } from "./helpers/iconDataUri";
 
-interface InputWithTextProps {
+interface InputProps {
   label: string;
   placeholder: string;
   type: string;
@@ -19,7 +19,7 @@ export function Input({
   id,
   text,
   disabled,
-}: InputWithTextProps) {
+}: InputProps) {
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5">
       <Label htmlFor={id}>{label}</Label>
@@ -36,7 +36,7 @@ export function Input({
 
 export function registerInput() {
   Builder.registerComponent(Input, {
-    name: "InputWithText",
+    name: "Input",
     inputs: [
       { name: "label", type: "text" },
       { name: "placeholder", type: "text" },

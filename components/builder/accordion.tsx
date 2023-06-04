@@ -36,7 +36,7 @@ export function registerAccordion() {
       dynamic(() => import("./accordion").then((mod) => mod.Accordion))
     ),
     {
-      name: "AccordionDemo",
+      name: "Accordion",
       inputs: [
         {
           name: "items",

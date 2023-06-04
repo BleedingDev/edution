@@ -1,6 +1,7 @@
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import * as icons from "lucide-react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 type IconProps = {
   name: keyof typeof icons;
@@ -27,7 +28,7 @@ export function registerIcon() {
         { name: "color", type: "string" },
         { name: "size", type: "number" },
       ],
-      image: "",
+      image: iconUriList.Icon,
     }
   );
 }
