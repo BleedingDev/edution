@@ -7,7 +7,7 @@ export { Progress };
 export function registerProgress() {
   Builder.registerComponent(Progress, {
     name: "Progress",
-    inputs: [{ name: "progress", type: "number" }],
+    inputs: [{ name: "value", type: "number" }],
     image: iconUriList.Progress,
   });
 }

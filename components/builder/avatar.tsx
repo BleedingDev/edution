@@ -29,8 +29,8 @@ export function registerAvatar() {
     {
       name: "Avatar",
       inputs: [
-        { name: "imageUrl", type: "string" },
-        { name: "alt", type: "text" },
+        { name: "imageUrl", type: "file" },
+        { name: "alt", type: "text", required: true },
         { name: "fallback", type: "text" },
       ],
       image: iconUriList.Avatar,
