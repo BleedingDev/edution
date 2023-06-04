@@ -7,9 +7,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Builder } from "@builder.io/react";
+import { Builder, withChildren } from "@builder.io/react";
 import { iconUriList } from "./helpers/iconDataUri";
 import { ReactNode } from "react";
+import dynamic from "next/dynamic";
 
 interface SheetProps {
   size?: "sm" | "lg" | "xl" | "full" | "content";
@@ -45,17 +46,20 @@ export function Sheet({
 }
 
 export function registerSheet() {
-  Builder.registerComponent(Sheet, {
-    name: "Sheet",
-    canHaveChildren: true,
-    inputs: [
-      { name: "triggerText", type: "text" },
-      { name: "title", type: "text" },
-      { name: "description", type: "text" },
-      { name: "children", type: "longText" },
-      { name: "size", type: "text" },
-      { name: "position", type: "text" },
-    ],
-    image: iconUriList.Sheet,
-  });
+  Builder.registerComponent(
+    withChildren(dynamic(() => import("./sheet").then((mod) => mod.Sheet))),
+    {
+      name: "Sheet",
+      canHaveChildren: true,
+      inputs: [
+        { name: "triggerText", type: "text" },
+        { name: "title", type: "text" },
+        { name: "description", type: "text" },
+        { name: "children", type: "longText" },
+        { name: "size", type: "text" },
+        { name: "position", type: "text" },
+      ],
+      image: iconUriList.Sheet,
+    }
+  );
 }
