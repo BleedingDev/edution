@@ -1,5 +1,6 @@
 import { ScrollArea as ScrollAreaComponent } from "@/components/ui/scroll-area";
 import { Builder } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface ScrollAreaProps {
   children: React.ReactNode;
@@ -23,5 +24,6 @@ export function registerScrollArea() {
     noWrap: true,
     canHaveChildren: true,
     inputs: [{ name: "children", type: "longText" }],
+    image: iconUriList.ScrollArea,
   });
 }

@@ -8,6 +8,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { useState } from "react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface CollapsibleProps {
   title: string;
@@ -55,6 +56,6 @@ export function registerCollapsible() {
       { name: "shownContent", type: "text" },
       { name: "children", type: "longText" },
     ],
-    image: "",
+    image: iconUriList.Collapsible,
   });
 }

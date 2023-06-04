@@ -4,6 +4,7 @@ import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
 import { Icon } from "./icon";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface ButtonProps {
   children: ReactNode;
@@ -35,7 +36,7 @@ export function registerButton() {
         },
         { name: "iconName", type: "string" },
       ],
-      image: "",
+      image: iconUriList.Button,
     }
   );
 }

@@ -5,6 +5,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Builder } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface SheetProps {
   size?: "sm" | "lg" | "xl" | "full" | "content";
@@ -35,5 +36,6 @@ export function registerSheet() {
       { name: "position", type: "string" },
       { name: "triggerText", type: "string" },
     ],
+    image: iconUriList.Sheet,
   });
 }

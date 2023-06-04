@@ -1,5 +1,6 @@
 import { Separator as SeparatorComponent } from "@/components/ui/separator";
 import { Builder } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface SeparatorProps {
   orientation?: "horizontal" | "vertical";
@@ -27,5 +28,6 @@ export function registerSeparator() {
         enum: ["horizontal", "vertical"],
       },
     ],
+    image: iconUriList.Separator,
   });
 }

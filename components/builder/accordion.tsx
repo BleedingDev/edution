@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface AccordionItem {
   title: string;
@@ -46,7 +47,7 @@ export function registerAccordion() {
           ],
         },
       ],
-      image: "",
+      image: iconUriList.Accordion,
     }
   );
 }

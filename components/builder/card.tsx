@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface CardProps {
   title: string;
@@ -42,7 +43,7 @@ export function registerCard() {
         { name: "footer", type: "text" },
         { name: "children", type: "longText" },
       ],
-      image: "",
+      image: iconUriList.Card,
     }
   );
 }

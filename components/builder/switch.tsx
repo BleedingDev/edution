@@ -1,6 +1,7 @@
 import { Label } from "@/components/ui/label";
 import { Switch as SwitchPrimitive } from "@/components/ui/switch";
 import { Builder } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface SwitchProps {
   label: string;
@@ -30,5 +31,6 @@ export function registerSwitch() {
       { name: "id", type: "string" },
       { name: "disabled", type: "boolean" },
     ],
+    image: iconUriList.Switch,
   });
 }

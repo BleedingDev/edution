@@ -1,6 +1,7 @@
 import { Builder, withChildren } from "@builder.io/react";
 import { Calendar } from "../ui/calendar";
 import dynamic from "next/dynamic";
+import { iconUriList } from "./helpers/iconDataUri";
 
 export { Calendar };
 
@@ -12,7 +13,7 @@ export function registerCalendar() {
     {
       name: "Calendar",
       inputs: [{ name: "date", type: "date" }],
-      image: "",
+      image: iconUriList.Calendar,
     }
   );
 }

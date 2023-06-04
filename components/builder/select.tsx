@@ -10,6 +10,7 @@ import {
 import { ExcludeFromTypeInference } from "@/lib/types";
 import { Builder } from "@builder.io/react";
 import { Label } from "../ui/label";
+import { iconUriList } from "./helpers/iconDataUri";
 
 type SelectOption = {
   value: string;
@@ -75,5 +76,6 @@ export function registerSelect() {
         ],
       },
     ],
+    image: iconUriList.Select,
   });
 }

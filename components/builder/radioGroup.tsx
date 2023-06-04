@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/radio-group";
 import { Builder } from "@builder.io/react";
 import { ExcludeFromTypeInference } from "@/lib/types";
+import { iconUriList } from "./helpers/iconDataUri";
 
 type RadioGroupOption = {
   value: string;
@@ -52,5 +53,6 @@ export function registerRadioGroup() {
         ],
       },
     ],
+    image: iconUriList.RadioGroup,
   });
 }

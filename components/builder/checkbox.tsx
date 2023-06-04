@@ -1,6 +1,7 @@
 import { Checkbox as CheckboxPrimitive } from "@/components/ui/checkbox";
 import { Builder } from "@builder.io/react";
 import { Label } from "../ui/label";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface CheckboxProps {
   id: string;
@@ -30,6 +31,6 @@ export function registerCheckbox() {
       { name: "subtext", type: "longText" },
       { name: "disabled", type: "boolean" },
     ],
-    image: "",
+    image: iconUriList.Checkbox,
   });
 }

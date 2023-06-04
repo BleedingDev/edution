@@ -1,6 +1,7 @@
 import { Textarea as TextareaPrimitive } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Builder } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface TextareaWithTextProps {
   id: string;
@@ -33,5 +34,6 @@ export function registerTextarea() {
       { name: "placeholder", type: "string" },
       { name: "text", type: "string" },
     ],
+    image: iconUriList.Textarea,
   });
 }

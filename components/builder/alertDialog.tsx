@@ -13,6 +13,7 @@ import { PropsFrom } from "@/lib/types";
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { Button } from "../ui/button";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface AlertDialogProps {
   triggerContent: string;
@@ -71,7 +72,7 @@ export function registerAlertDialog() {
         { name: "onCancel", type: "action" },
         { name: "onAction", type: "action" },
       ],
-      image: "",
+      image: iconUriList.AlertDialog,
     }
   );
 }

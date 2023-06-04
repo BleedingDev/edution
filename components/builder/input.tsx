@@ -1,6 +1,7 @@
 import { Input as InputPrimitive } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Builder } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface InputWithTextProps {
   label: string;
@@ -44,6 +45,6 @@ export function registerInput() {
       { name: "text", type: "text" },
       { name: "disabled", type: "boolean" },
     ],
-    image: "",
+    image: iconUriList.Input,
   });
 }

@@ -35,7 +35,7 @@ export function registerAlert() {
         { name: "description", type: "text" },
         { name: "iconName", type: "text" },
       ],
-      image: iconUriList.alert,
+      image: iconUriList.Alert,
     }
   );
 }

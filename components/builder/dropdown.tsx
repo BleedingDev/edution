@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Builder, withChildren } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface DropdownMenuProps {
   triggerText: string;
@@ -42,6 +43,6 @@ export function registerDropdown() {
       { name: "label", type: "text" },
       { name: "children", type: "longText" },
     ],
-    image: "",
+    image: iconUriList.DropdownMenu,
   });
 }

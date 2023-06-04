@@ -6,6 +6,7 @@ import {
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface AvatarProps {
   imageUrl: string;
@@ -32,7 +33,7 @@ export function registerAvatar() {
         { name: "alt", type: "text" },
         { name: "fallback", type: "text" },
       ],
-      image: "",
+      image: iconUriList.Avatar,
     }
   );
 }

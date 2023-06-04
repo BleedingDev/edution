@@ -1,6 +1,7 @@
 import { Slider as SliderPrimitive } from "@/components/ui/slider";
 import { Builder } from "@builder.io/react";
 import { Label } from "../ui/label";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface SliderProps {
   id: string;
@@ -54,5 +55,6 @@ export function registerSlider() {
       { name: "text", type: "string" },
       { name: "disabled", type: "boolean" },
     ],
+    image: iconUriList.Slider,
   });
 }

@@ -9,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Builder, withChildren } from "@builder.io/react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface DialogProps {
   triggerText: string;
@@ -50,6 +51,6 @@ export function registerDialog() {
       { name: "description", type: "text" },
       { name: "footer", type: "text" },
     ],
-    image: "",
+    image: iconUriList.Dialog,
   });
 }

@@ -2,6 +2,7 @@ import { Badge as BadgePrimitive } from "@/components/ui/badge";
 import { PropsFrom } from "@/lib/types";
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface BadgeProps {
   children: string;
@@ -21,7 +22,7 @@ export function registerBadge() {
         { name: "children", type: "text" },
         { name: "variant", type: "string" },
       ],
-      image: "",
+      image: iconUriList.Badge,
     }
   );
 }

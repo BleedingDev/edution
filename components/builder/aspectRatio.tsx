@@ -2,6 +2,7 @@ import { AspectRatio as AspectRatioPrimitive } from "@/components/ui/aspect-rati
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
+import { iconUriList } from "./helpers/iconDataUri";
 
 interface AspectRatioProps {
   ratio: number;
@@ -25,7 +26,7 @@ export function registerAspectRatio() {
       name: "AspectRatio",
       canHaveChildren: true,
       inputs: [{ name: "ratio", type: "number", defaultValue: 16 / 9 }],
-      image: "",
+      image: iconUriList.AspectRatio,
     }
   );
 }
