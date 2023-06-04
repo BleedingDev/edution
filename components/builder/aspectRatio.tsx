@@ -10,7 +10,7 @@ interface AspectRatioProps {
 
 export function AspectRatio({ ratio, children }: AspectRatioProps) {
   return (
-    <AspectRatioPrimitive ratio={ratio} className="bg-muted">
+    <AspectRatioPrimitive ratio={ratio} className="bg-muted overflow-hidden">
       {children}
     </AspectRatioPrimitive>
   );

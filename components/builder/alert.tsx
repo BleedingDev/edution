@@ -4,7 +4,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from "../ui/alert";
-import { Icon } from "./icons";
+import { Icon } from "./icon";
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { iconUriList } from "./helpers/iconDataUri";

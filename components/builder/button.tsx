@@ -3,7 +3,7 @@ import { PropsFrom } from "@/lib/types";
 import { Builder, withChildren } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
-import { Icon } from "./icons";
+import { Icon } from "./icon";
 
 interface ButtonProps {
   children: ReactNode;
