@@ -4,8 +4,56 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import DefaultErrorPage from "next/error";
 import Head from "next/head";
 
+import { registerAccordion } from "@/components/builder/accordion";
+import { registerAlert } from "@/components/builder/alert";
+import { registerAlertDialog } from "@/components/builder/alertDialog";
+import { registerAspectRatio } from "@/components/builder/aspectRatio";
+import { registerAvatar } from "@/components/builder/avatar";
+import { registerBadge } from "@/components/builder/badge";
+import { registerButton } from "@/components/builder/button";
+import { registerCalendar } from "@/components/builder/calendar";
+import { registerCard } from "@/components/builder/card";
+import { registerCheckbox } from "@/components/builder/checkbox";
+import { registerCollapsible } from "@/components/builder/collapsible";
+import { registerDialog } from "@/components/builder/dialog";
+import { registerDropdown } from "@/components/builder/dropdown";
+import { registerInput } from "@/components/builder/input";
+import { registerProgress } from "@/components/builder/progress";
+import { registerScrollArea } from "@/components/builder/scrollArea";
+import { registerSeparator } from "@/components/builder/separator";
+import { registerSheet } from "@/components/builder/sheet";
+import { registerTextarea } from "@/components/builder/textarea";
+import { registerRadioGroup } from "@/components/builder/radioGroup";
+import { registerSlider } from "@/components/builder/slider";
+import { registerSelect } from "@/components/builder/select";
+import { registerSwitch } from "@/components/builder/switch";
+
+registerAccordion();
+registerAlert();
+registerAlertDialog();
+registerAspectRatio();
+registerAvatar();
+registerBadge();
+registerButton();
+registerCalendar();
+registerCard();
+registerCheckbox();
+registerCollapsible();
+registerDialog();
+registerDropdown();
+registerInput();
+registerProgress();
+registerRadioGroup();
+registerScrollArea();
+registerSelect();
+registerSeparator();
+registerSheet();
+registerSlider();
+registerSwitch();
+registerTextarea();
+
 // Replace with your Public API Key
-builder.init("87923f64444a4d3898748fb78d90440c");
+builder.init("fc8c4845012a4bc1b1ad5def62ae864f");
 
 // Define a function that fetches the Builder
 // content for a given page
