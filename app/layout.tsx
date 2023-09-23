@@ -1,6 +1,7 @@
-import "./styles.css";
-
+import { Analytics } from "@vercel/analytics/react";
 import { Lexend } from "next/font/google";
+
+import "./styles.css";
 
 const font = Lexend({ subsets: ["latin"] });
 
@@ -11,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.className}>
-      <body className="overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
