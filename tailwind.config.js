@@ -1,11 +1,9 @@
+import { aspectRatio } from "./utils/puckUtils"
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-	],
+  content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./utils/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -64,11 +62,16 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        blink: {
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        blink: "blink 1.1s infinite step-start",
       },
+      aspectRatio,
     },
   },
   plugins: [require("tailwindcss-animate")],
