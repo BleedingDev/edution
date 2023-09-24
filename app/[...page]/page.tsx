@@ -29,6 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const { title, description, image } = content?.data || {};
 
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
     title,
     description,
     openGraph: {
