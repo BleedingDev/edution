@@ -5,7 +5,7 @@ import type { Data } from "@measured/puck";
 import { Button, Puck, Render } from "@measured/puck";
 import headingAnalyzer from "@measured/puck-plugin-heading-analyzer";
 
-import config from "../../../puck.config";
+import config, { getDefaultData } from "../../../puck.config";
 
 const isBrowser = typeof window !== "undefined";
 
@@ -28,7 +28,9 @@ export function Client({
         return JSON.parse(dataStr);
       }
     }
-    return { content: [] };
+    const defaultData = getDefaultData(path);
+    isBrowser && localStorage.setItem(key, JSON.stringify(defaultData));
+    return defaultData;
   });
 
   if (isEdit) {

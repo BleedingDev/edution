@@ -1,24 +1,24 @@
-import type { Config } from "@measured/puck"
-import { selectAspectRatios } from "@utils/puckUtils"
-import { PropsFrom } from "@utils/types"
-import { Audio } from "components/Audio"
-import { Image } from "components/Image"
-import { Link } from "components/Link"
-import { Spoiler } from "components/Spoiler"
-import { Video } from "components/Video"
+import type { Config } from "@measured/puck";
+import { selectAspectRatios } from "@utils/puckUtils";
+import { PropsFrom } from "@utils/types";
+import { Audio } from "components/Audio";
+import { Image } from "components/Image";
+import { Link } from "components/Link";
+import { Spoiler } from "components/Spoiler";
+import { Video } from "components/Video";
 
-import { Root } from "./components/Root"
-import { Typography } from "./components/Typography"
+import { Root } from "./components/Root";
+import { Typography } from "./components/Typography";
 
 // TODO: Better Type Inference
 type Props = {
-  Typography: PropsFrom<typeof Typography>
-  Spoiler: PropsFrom<typeof Spoiler>
-  Link: PropsFrom<typeof Link>
-  Image: PropsFrom<typeof Image>
-  Video: PropsFrom<typeof Video>
-  Audio: PropsFrom<typeof Audio>
-}
+  Typography: PropsFrom<typeof Typography>;
+  Spoiler: PropsFrom<typeof Spoiler>;
+  Link: PropsFrom<typeof Link>;
+  Image: PropsFrom<typeof Image>;
+  Video: PropsFrom<typeof Video>;
+  Audio: PropsFrom<typeof Audio>;
+};
 
 export const config = {
   root: {
@@ -177,6 +177,20 @@ export const config = {
       render: Audio,
     },
   },
-} satisfies Config<Props>
+} satisfies Config<Props>;
 
-export default config
+export const getDefaultData = (path: string) => ({
+  content: [
+    {
+      type: "Link",
+      props: {
+        href: `/demo${path}edit`,
+        content: "Edit this page",
+        id: "Link-1695576376753",
+      },
+    },
+  ],
+  root: { title: "Demo page" },
+});
+
+export default config;
