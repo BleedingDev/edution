@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   if (isEdit) {
     return {
-      title: "Puck: " + path,
+      title: "Coursition - Editing: " + path,
     };
   }
 
