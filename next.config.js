@@ -2,7 +2,7 @@ const withBuilderDevTools = require("@builder.io/dev-tools/next")();
 
 module.exports = withBuilderDevTools({
   reactStrictMode: true,
-  transpilePackages: ["ui"],
+  transpilePackages: ["ui", "@builder.io/sdk-react-nextjs"],
   images: {
     remotePatterns: [
       {
@@ -23,5 +23,6 @@ module.exports = withBuilderDevTools({
   },
   experimental: {
     nextScriptWorkers: true,
+    serverActions: true,
   },
 });

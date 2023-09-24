@@ -14,6 +14,9 @@ dependencies:
   '@builder.io/sdk':
     specifier: ^2.0.8
     version: 2.0.8
+  '@builder.io/sdk-react-nextjs':
+    specifier: ^0.6.2
+    version: 0.6.2(next@13.5.2)(react-dom@18.2.0)(react@18.2.0)
   '@measured/puck':
     specifier: ^0.7.0
     version: 0.7.0(react-dom@18.2.0)(react@18.2.0)
@@ -324,6 +327,19 @@ packages:
       prop-types: 15.8.1
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /@builder.io/sdk-react-nextjs@0.6.2(next@13.5.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-bcPcjWUic7hrSkwd8od/VqVdTzPu2b3+USP9xtN2e4zoBlP5TdTBWwgo2yB1vmTrj8G/CUEbLHIf0SiBOIJuCA==}
+    peerDependencies:
+      next: ^13.4.20-canary.10 || ^13.4.20
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      lru-cache: 10.0.1
+      next: 13.5.2(@babel/core@7.22.20)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@builder.io/sdk@2.0.8:
@@ -2583,6 +2599,11 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+
+  /lru-cache@10.0.1:
+    resolution: {integrity: sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==}
+    engines: {node: 14 || >=16.14}
+    dev: false
 
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}

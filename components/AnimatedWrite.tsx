@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { PropsFrom } from "@utils/types";
 import { TypeAnimation } from "react-type-animation";
