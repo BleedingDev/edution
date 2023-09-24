@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { Lexend } from "next/font/google";
 import { Partytown } from "@builder.io/partytown/react";
-import Head from "next/head";
 
 import "./styles.css";
 
@@ -14,10 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.className}>
-      <Head>
-        <Partytown debug={true} forward={["gtag", "dataLayer.push"]} />
-      </Head>
       <body className="overflow-x-hidden">
+        <Partytown debug={true} forward={["gtag", "dataLayer.push"]} />
         {children}
         <Analytics />
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
