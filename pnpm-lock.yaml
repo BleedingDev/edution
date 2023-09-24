@@ -64,6 +64,9 @@ dependencies:
     version: 0.6.13
 
 devDependencies:
+  '@builder.io/partytown':
+    specifier: ^0.8.1
+    version: 0.8.1
   '@ianvs/prettier-plugin-sort-imports':
     specifier: ^4.1.0
     version: 4.1.0(prettier@3.0.3)
@@ -295,6 +298,12 @@ packages:
       prettier: 2.8.8
       typescript: 5.2.2
     dev: false
+
+  /@builder.io/partytown@0.8.1:
+    resolution: {integrity: sha512-p4xhEtQCPe8YFJ8e7KT9RptnT+f4lvtbmXymbp1t0bLp+USkNMTxrRMNc3Dlr2w2fpxyX7uA0CyAeU3ju84O4A==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    dev: true
 
   /@builder.io/react@3.0.14(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-8Hq9Dxr8MNCpg8so/+LkOIeRycxUe7QYuq6N8mdOgAFr1O1LBIFbA6I8enSK5RqyhnCd/0Ch77jhA/Y4eSCdMQ==}
