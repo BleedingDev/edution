@@ -14,6 +14,7 @@ interface PageProps {
 }
 
 // TODO: No page data, but should be same as in component
+// Builder.io doesn't work well with Next.js 13 App Dir
 export async function generateMetadata(): Promise<Metadata> {
   const page = [];
   const content = await builder
