@@ -15,7 +15,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={font.className}>
       <body className="overflow-x-hidden">
-        <Partytown debug={true} forward={["gtag", "dataLayer.push"]} />
+        <Partytown
+          resolveUrl={function (url) {
+            if (url.hostname === "connect.facebook.net") {
+              var proxyUrl = new URL(
+                `${process.env.NEXT_PUBLIC_SITE_URL}/fb/${url.pathname}`
+              );
+              return proxyUrl;
+            }
+            return url;
+          }}
+          debug={true}
+          forward={["gtag", "dataLayer.push", "fbq"]}
+        />
         {children}
         <Analytics />
         <Tracking />

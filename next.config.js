@@ -13,6 +13,14 @@ module.exports = withBuilderDevTools({
       },
     ],
   },
+  rewrites: () => {
+    return [
+      {
+        source: "/fb/:path*",
+        destination: "https://connect.facebook.net/:path*",
+      },
+    ];
+  },
   experimental: {
     nextScriptWorkers: true,
   },
