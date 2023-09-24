@@ -27,9 +27,8 @@ export function Client({
       if (dataStr) {
         return JSON.parse(dataStr);
       }
-
-      return undefined;
     }
+    return { content: [] };
   });
 
   if (isEdit) {

@@ -5,6 +5,8 @@ import { Data } from "@measured/puck";
 import { Client } from "./client";
 import resolvePuckPath from "./resolve-puck-path";
 
+const localData = true;
+
 // Replace with call to your database
 const getPage = (path: string) => {
   const allData: Record<string, Data> | null = null;
@@ -39,7 +41,7 @@ export default async function Page({
 
   const data = getPage(path);
 
-  if (!data && !isEdit) {
+  if (!localData && !data && !isEdit) {
     return notFound();
   }
 
