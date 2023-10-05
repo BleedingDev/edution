@@ -9,6 +9,7 @@ import { Video } from "components/Video";
 
 import { Root } from "./components/Root";
 import { Typography } from "./components/Typography";
+import { Divider } from "components/Divider";
 
 // TODO: Better Type Inference
 type Props = {
@@ -18,6 +19,7 @@ type Props = {
   Image: PropsFrom<typeof Image>;
   Video: PropsFrom<typeof Video>;
   Audio: PropsFrom<typeof Audio>;
+  Divider: PropsFrom<typeof Divider>;
 };
 
 export const config = {
@@ -175,6 +177,9 @@ export const config = {
         chapters: [],
       },
       render: Audio,
+    },
+    Divider: {
+      render: Divider,
     },
   },
 } satisfies Config<Props>;
