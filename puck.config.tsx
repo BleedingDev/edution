@@ -191,17 +191,17 @@ export const config = {
             content: { type: "text" },
           },
         },
-        style: {
-          type: "select",
+        ordered: {
+          type: "radio",
           options: [
-            { label: "ordered", value: "ordered" },
-            { label: "unordered", value: "unordered" },
+            { label: "Ordered", value: true },
+            { label: "Unordered", value: false },
           ],
         },
       },
       defaultProps: {
         lists: [{ content: "Create the list" }, { content: "Study for 2hrs" }],
-        style: "unordered",
+        ordered: false,
       },
       render: List,
     },

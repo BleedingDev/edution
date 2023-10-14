@@ -1,30 +1,14 @@
-import { ReactNode } from "react";
-
 interface Props {
   lists: { content: string }[];
-  style: "ordered" | "unordered";
+  ordered: boolean;
 }
 
-export const Tag = ({
-  children,
-  style,
-  className,
-}: {
-  children: ReactNode;
-  style: "ordered" | "unordered";
-  className: string;
-}) => {
-  if (style === "ordered") {
-    return <ol className={`${className} list-decimal`}>{children}</ol>;
-  }
-  if (style === "unordered") {
-    return <ul className={`${className} list-disc`}>{children}</ul>;
-  }
-};
+export function List({ lists, ordered }: Props) {
+  const Tag = ordered ? "ol" : "ul";
+  const listStyle = ordered ? "list-decimal" : "list-disc";
 
-export function List({ lists, style }: Props) {
   return (
-    <Tag style={style} className="grid grid-cols-1 gap-1 ">
+    <Tag className={`${listStyle}`}>
       {lists.map(({ content }) => (
         <li>{content}</li>
       ))}
