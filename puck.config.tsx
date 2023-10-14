@@ -10,7 +10,7 @@ import { Video } from "components/Video";
 import { Root } from "./components/Root";
 import { Typography } from "./components/Typography";
 import { Divider } from "components/Divider";
-
+import { List } from "components/List";
 // TODO: Better Type Inference
 type Props = {
   Typography: PropsFrom<typeof Typography>;
@@ -20,6 +20,7 @@ type Props = {
   Video: PropsFrom<typeof Video>;
   Audio: PropsFrom<typeof Audio>;
   Divider: PropsFrom<typeof Divider>;
+  List: PropsFrom<typeof List>;
 };
 
 export const config = {
@@ -180,6 +181,29 @@ export const config = {
     },
     Divider: {
       render: Divider,
+    },
+    List: {
+      fields: {
+        lists: {
+          type: "array",
+          getItemSummary: (item) => item.content || "New List",
+          arrayFields: {
+            content: { type: "text" },
+          },
+        },
+        ordered: {
+          type: "radio",
+          options: [
+            { label: "Ordered", value: true },
+            { label: "Unordered", value: false },
+          ],
+        },
+      },
+      defaultProps: {
+        lists: [{ content: "Create the list" }, { content: "Study for 2hrs" }],
+        ordered: false,
+      },
+      render: List,
     },
   },
 } satisfies Config<Props>;
