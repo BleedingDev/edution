@@ -1,16 +1,18 @@
 import type { Config } from "@measured/puck";
 import { selectAspectRatios } from "@utils/puckUtils";
 import { PropsFrom } from "@utils/types";
+import { Root } from "components/Root";
+
 import { Audio } from "components/Audio";
 import { Image } from "components/Image";
 import { Link } from "components/Link";
 import { Spoiler } from "components/Spoiler";
 import { Video } from "components/Video";
-
-import { Root } from "./components/Root";
-import { Typography } from "./components/Typography";
+import { Typography } from "components/Typography";
 import { Divider } from "components/Divider";
 import { List } from "components/List";
+import { CopyText } from "components/CopyText";
+
 // TODO: Better Type Inference
 type Props = {
   Typography: PropsFrom<typeof Typography>;
@@ -21,6 +23,7 @@ type Props = {
   Audio: PropsFrom<typeof Audio>;
   Divider: PropsFrom<typeof Divider>;
   List: PropsFrom<typeof List>;
+  CopyText: PropsFrom<typeof CopyText>;
 };
 
 export const config = {
@@ -204,6 +207,17 @@ export const config = {
         ordered: false,
       },
       render: List,
+    },
+    CopyText: {
+      fields: {
+        title: { type: "text" },
+        content: { type: "text" },
+      },
+      defaultProps: {
+        title: "Spoiler Title",
+        content: "Spoiler Content",
+      },
+      render: CopyText,
     },
   },
 } satisfies Config<Props>;
