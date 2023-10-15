@@ -4,7 +4,6 @@ import { Button } from "@shadcn/ui/button";
 import { Separator } from "@shadcn/ui/separator";
 import { Typography } from "./Typography";
 import { useChat } from "ai/react";
-import { FormEvent } from "react";
 
 interface AskLLMProps {
   predefinedPrompt?: string;
