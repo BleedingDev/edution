@@ -25,6 +25,7 @@ function getApiKey() {
 export function AskLLM({
   predefinedPrompt = "",
   predefinedOutput = "",
+  apiKey: courseApiKey,
 }: AskLLMProps) {
   const { messages, isLoading, reload } = useChat({
     api: "/api/chat",
@@ -38,7 +39,7 @@ export function AskLLM({
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const input = formData.get("prompt");
-    const apiKey = getApiKey();
+    const apiKey = courseApiKey ?? getApiKey();
     const inputMessages: Omit<(typeof messages)[0], "id">[] = [
       { role: "user", content: input as string },
     ];

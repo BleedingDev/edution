@@ -12,6 +12,7 @@ import { Typography } from "components/Typography";
 import { Divider } from "components/Divider";
 import { List } from "components/List";
 import { CopyText } from "components/CopyText";
+import { AskLLM } from "components/AskLLM";
 
 // TODO: Better Type Inference
 type Props = {
@@ -24,6 +25,7 @@ type Props = {
   Divider: PropsFrom<typeof Divider>;
   List: PropsFrom<typeof List>;
   CopyText: PropsFrom<typeof CopyText>;
+  AskLLM: PropsFrom<typeof AskLLM>;
 };
 
 export const config = {
@@ -218,6 +220,18 @@ export const config = {
         content: "Spoiler Content",
       },
       render: CopyText,
+    },
+    AskLLM: {
+      fields: {
+        predefinedPrompt: { type: "text" },
+        predefinedOutput: { type: "text" },
+        apiKey: { type: "text" },
+      },
+      defaultProps: {
+        predefinedPrompt: "This is just predefined prompt.",
+        predefinedOutput: "This is predefined output without calling an API.",
+      },
+      render: AskLLM,
     },
   },
 } satisfies Config<Props>;
