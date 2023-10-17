@@ -1,16 +1,19 @@
 import type { Config } from "@measured/puck";
 import { selectAspectRatios } from "@utils/puckUtils";
 import { PropsFrom } from "@utils/types";
+import { Root } from "components/Root";
+
 import { Audio } from "components/Audio";
 import { Image } from "components/Image";
 import { Link } from "components/Link";
 import { Spoiler } from "components/Spoiler";
 import { Video } from "components/Video";
-
-import { Root } from "./components/Root";
-import { Typography } from "./components/Typography";
+import { Typography } from "components/Typography";
 import { Divider } from "components/Divider";
 import { List } from "components/List";
+import { CopyText } from "components/CopyText";
+import { AskLLM } from "components/AskLLM";
+
 // TODO: Better Type Inference
 type Props = {
   Typography: PropsFrom<typeof Typography>;
@@ -21,6 +24,8 @@ type Props = {
   Audio: PropsFrom<typeof Audio>;
   Divider: PropsFrom<typeof Divider>;
   List: PropsFrom<typeof List>;
+  CopyText: PropsFrom<typeof CopyText>;
+  AskLLM: PropsFrom<typeof AskLLM>;
 };
 
 export const config = {
@@ -204,6 +209,29 @@ export const config = {
         ordered: false,
       },
       render: List,
+    },
+    CopyText: {
+      fields: {
+        title: { type: "text" },
+        content: { type: "text" },
+      },
+      defaultProps: {
+        title: "Spoiler Title",
+        content: "Spoiler Content",
+      },
+      render: CopyText,
+    },
+    AskLLM: {
+      fields: {
+        predefinedPrompt: { type: "text" },
+        predefinedOutput: { type: "text" },
+        apiKey: { type: "text" },
+      },
+      defaultProps: {
+        predefinedPrompt: "This is just predefined prompt.",
+        predefinedOutput: "This is predefined output without calling an API.",
+      },
+      render: AskLLM,
     },
   },
 } satisfies Config<Props>;
