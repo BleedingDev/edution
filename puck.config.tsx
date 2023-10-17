@@ -13,6 +13,13 @@ import { Divider } from "components/Divider";
 import { List } from "components/List";
 import { CopyText } from "components/CopyText";
 import { AskLLM } from "components/AskLLM";
+import { Code } from "components/Code";
+import { CodeInput } from "components/CustomInputs/CodeInput";
+import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs";
+
+export const supportedLangs = Object.keys(
+  bundledLanguages
+) as BuiltinLanguage[];
 
 // TODO: Better Type Inference
 type Props = {
@@ -26,6 +33,7 @@ type Props = {
   List: PropsFrom<typeof List>;
   CopyText: PropsFrom<typeof CopyText>;
   AskLLM: PropsFrom<typeof AskLLM>;
+  Code: PropsFrom<typeof Code>;
 };
 
 export const config = {
@@ -232,6 +240,26 @@ export const config = {
         predefinedOutput: "This is predefined output without calling an API.",
       },
       render: AskLLM,
+    },
+    Code: {
+      fields: {
+        code: {
+          type: "custom",
+          render: CodeInput,
+        },
+        showLines: {
+          type: "radio",
+          options: [
+            { label: "Show", value: true },
+            { label: "Hide", value: false },
+          ],
+        },
+      },
+      defaultProps: {
+        code: { raw: "", processed: "", lang: "" },
+        showLines: true,
+      },
+      render: Code as any,
     },
   },
 } satisfies Config<Props>;

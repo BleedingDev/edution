@@ -1,18 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Data } from "@measured/puck";
-
 import { Client } from "./client";
 import resolvePuckPath from "./resolve-puck-path";
+import { getPage } from "@utils/puckData";
 
 const localData = true;
-
-// Replace with call to your database
-const getPage = (path: string) => {
-  const allData: Record<string, Data> | null = null;
-
-  return allData ? allData[path] : null;
-};
 
 export async function generateMetadata({
   params,

@@ -74,3 +74,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  pre.shiki {
+    padding: 0.5rem;
+  }
+
+  .lines pre.shiki {
+    overflow: auto;
+  }
+
+  .lines pre.shiki > code {
+    counter-reset: line;
+  }
+
+  .lines pre.shiki > code > .line::before {
+    counter-increment: line;
+    content: counter(line);
+
+    /* Other styling */
+    display: inline-block;
+    margin: 0 1rem;
+    text-align: right;
+    color: gray;
+  }
+}

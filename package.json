@@ -32,6 +32,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-type-animation": "^3.1.0",
+    "shikiji": "^0.6.10",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "vidstack": "^0.6.13"
