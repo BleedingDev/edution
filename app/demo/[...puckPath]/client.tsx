@@ -5,7 +5,7 @@ import type { Data } from "@measured/puck";
 import { Button, Puck, Render } from "@measured/puck";
 import headingAnalyzer from "@measured/puck-plugin-heading-analyzer";
 
-import config, { getDefaultData } from "../../../puck.config";
+import { config, getDefaultData } from "../../../puck.config";
 
 const isBrowser = typeof window !== "undefined";
 
