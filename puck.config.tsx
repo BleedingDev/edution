@@ -15,6 +15,11 @@ import { CopyText } from "components/CopyText";
 import { AskLLM } from "components/AskLLM";
 import { Code } from "components/Code";
 import { CodeInput } from "components/CustomInputs/CodeInput";
+import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs";
+
+export const supportedLangs = Object.keys(
+  bundledLanguages
+) as BuiltinLanguage[];
 
 // TODO: Better Type Inference
 type Props = {
@@ -251,7 +256,7 @@ export const config = {
         },
       },
       defaultProps: {
-        code: { raw: "", processed: "" },
+        code: { raw: "", processed: "", lang: "" },
         showLines: true,
       },
       render: Code as any,

@@ -2,7 +2,7 @@ export function Code({
   code,
   showLines,
 }: {
-  code: { raw: string; processed: string };
+  code: { raw: string; processed: string; lang: string };
   showLines: boolean;
 }) {
   return (

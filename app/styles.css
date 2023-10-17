@@ -76,9 +76,12 @@
 }
 
 @layer components {
+  pre.shiki {
+    padding: 0.5rem;
+  }
+
   .lines pre.shiki {
     overflow: auto;
-    padding: 0.5rem;
   }
 
   .lines pre.shiki > code {
