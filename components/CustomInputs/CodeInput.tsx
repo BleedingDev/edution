@@ -40,7 +40,11 @@ export function CodeInput(props) {
           name="code"
           defaultValue={value.raw}
           onChange={(e) =>
-            setCode({ raw: e.currentTarget.value, processed: "" })
+            setCode({
+              raw: e.currentTarget.value,
+              processed: code.processed,
+              lang: code.lang,
+            })
           }
         />
       </FieldLabel>
