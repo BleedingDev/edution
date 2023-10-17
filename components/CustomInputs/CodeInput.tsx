@@ -35,9 +35,7 @@ export function CodeInput({ field, name, onChange, value }) {
         placeholder="Enter text..."
         name={name}
         defaultValue={value.raw}
-        onChange={(e) =>
-          setCode({ raw: e.currentTarget.value, processsed: "" })
-        }
+        onChange={(e) => setCode({ raw: e.currentTarget.value, processed: "" })}
       ></textarea>
     </FieldLabel>
   );
