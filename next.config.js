@@ -21,6 +21,16 @@ module.exports = withBuilderDevTools({
       },
     ];
   },
+  webpack: function (config) {
+    config.module.rules.push({
+      test: /\.m?js$/,
+      type: "javascript/auto",
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+    return config;
+  },
   experimental: {
     nextScriptWorkers: true,
     serverActions: true,
