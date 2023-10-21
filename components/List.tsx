@@ -1,11 +1,11 @@
 interface Props {
-  lists: { content: string }[];
-  ordered: boolean;
+  lists: { content: string }[]
+  ordered: boolean
 }
 
 export function List({ lists, ordered }: Props) {
-  const Tag = ordered ? "ol" : "ul";
-  const listStyle = ordered ? "list-decimal" : "list-disc";
+  const Tag = ordered ? "ol" : "ul"
+  const listStyle = ordered ? "list-decimal" : "list-disc"
 
   return (
     <Tag className={`${listStyle}`}>
@@ -13,5 +13,5 @@ export function List({ lists, ordered }: Props) {
         <li key={content.replaceAll(" ", "").toLowerCase()}>{content}</li>
       ))}
     </Tag>
-  );
+  )
 }

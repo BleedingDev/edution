@@ -1,4 +1,4 @@
-import { NotionAPI } from "notion-client";
+import { NotionAPI } from "notion-client"
 
-const notion = new NotionAPI();
-export default notion;
+const notion = new NotionAPI()
+export default notion
