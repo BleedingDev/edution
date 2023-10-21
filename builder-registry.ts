@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Builder } from "@builder.io/react";
-import { AnimatedWrite } from "components/AnimatedWrite";
+import { Builder } from "@builder.io/react"
+import { AnimatedWrite } from "components/AnimatedWrite"
 
 Builder.registerComponent(AnimatedWrite, {
   name: "AnimatedWrite",
@@ -26,4 +26,4 @@ Builder.registerComponent(AnimatedWrite, {
     },
     { name: "tag", type: "text" },
   ],
-});
+})

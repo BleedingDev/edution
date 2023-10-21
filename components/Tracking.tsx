@@ -3,11 +3,11 @@ export function Tracking() {
     <>
       {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script
-        type="text/partytown"
+        type='text/partytown'
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_KEY}`}
       />
       <script
-        type="text/partytown"
+        type='text/partytown'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -21,7 +21,7 @@ export function Tracking() {
         }}
       />
       <script
-        type="text/partytown"
+        type='text/partytown'
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -40,13 +40,13 @@ export function Tracking() {
       <noscript>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          height="1"
-          width="1"
-          alt=""
+          height='1'
+          width='1'
+          alt=''
           style={{ display: "none" }}
           src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FB_PIXEL}&ev=PageView&noscript=1`}
         />
       </noscript>
     </>
-  );
+  )
 }

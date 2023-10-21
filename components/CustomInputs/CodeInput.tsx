@@ -1,43 +1,43 @@
-"use client";
+"use client"
 
-import { bundledLanguages, getHighlighter } from "shikiji";
-import { FieldLabel } from "@measured/puck";
-import { useEffect, useState } from "react";
-import { supportedLangs } from "puck.config";
-import { Separator } from "@shadcn/ui/separator";
+import { useEffect, useState } from "react"
+import { FieldLabel } from "@measured/puck"
+import { Separator } from "@shadcn/ui/separator"
+import { supportedLangs } from "puck.config"
+import { bundledLanguages, getHighlighter } from "shikiji"
 
-const theme = "dark-plus";
+const theme = "dark-plus"
 
 const highlighter = getHighlighter({
   themes: [theme],
   langs: Object.keys(bundledLanguages),
-});
+})
 
 export function CodeInput(props) {
-  const { onChange, value } = props;
-  const [code, setCode] = useState(value);
+  const { onChange, value } = props
+  const [code, setCode] = useState(value)
 
   useEffect(() => {
     async function highlightCode() {
-      const shiki = await highlighter;
+      const shiki = await highlighter
 
       const html = shiki.codeToHtml(code.raw, {
         lang: code.lang,
         theme,
-      });
-      onChange({ raw: code.raw, processed: html, lang: code.lang });
+      })
+      onChange({ raw: code.raw, processed: html, lang: code.lang })
     }
 
-    highlightCode();
-  }, [code.raw, code.lang]);
+    highlightCode()
+  }, [code.raw, code.lang])
 
   return (
-    <div className="flex flex-col gap-4">
-      <FieldLabel label="Code">
+    <div className='flex flex-col gap-4'>
+      <FieldLabel label='Code'>
         <textarea
-          className="w-full h-36 p-1"
-          placeholder="Enter code..."
-          name="code"
+          className='h-36 w-full p-1'
+          placeholder='Enter code...'
+          name='code'
           defaultValue={value.raw}
           onChange={(e) =>
             setCode({
@@ -48,14 +48,14 @@ export function CodeInput(props) {
           }
         />
       </FieldLabel>
-      <Separator className="w-full" />
-      <FieldLabel label="Language">
+      <Separator className='w-full' />
+      <FieldLabel label='Language'>
         <input
-          id="language"
-          list="languages"
-          className="w-full p-1"
-          placeholder="Choose language..."
-          name="language"
+          id='language'
+          list='languages'
+          className='w-full p-1'
+          placeholder='Choose language...'
+          name='language'
           defaultValue={value.lang}
           onChange={(e) =>
             setCode({
@@ -65,12 +65,12 @@ export function CodeInput(props) {
             })
           }
         />
-        <datalist id="languages">
+        <datalist id='languages'>
           {supportedLangs.map((l) => (
             <option key={l} value={l} />
           ))}
         </datalist>
       </FieldLabel>
     </div>
-  );
+  )
 }
