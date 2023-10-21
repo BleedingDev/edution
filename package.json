@@ -7,7 +7,8 @@
     "build": "pnpm run partytown && next build",
     "start": "next start",
     "lint": "next lint",
-    "partytown": "partytown copylib public/~partytown"
+    "partytown": "partytown copylib public/~partytown",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@builder.io/dev-tools": "^0.1.23",
@@ -47,12 +48,13 @@
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
     "autoprefixer": "^10.4.15",
     "eslint-config-custom": "*",
     "postcss": "^8.4.26",
     "prettier-plugin-tailwindcss": "^0.5.3",
     "tailwindcss": "3.3.2",
-    "typescript": "^4.5.3"
+    "typescript": "^5.2.2"
   },
   "volta": {
     "node": "20.8.1"

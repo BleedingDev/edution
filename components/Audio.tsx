@@ -34,6 +34,7 @@ export function Audio({
           {!!subtitles?.length &&
             subtitles.map((sub) => (
               <track
+                key={sub.label}
                 src={sub.src}
                 label={sub.label}
                 srcLang={sub.language}
@@ -45,6 +46,7 @@ export function Audio({
           {!!chapters?.length &&
             chapters.map((chapter) => (
               <track
+                key={chapter.language}
                 src={chapter.src}
                 srcLang={chapter.language}
                 kind="chapters"
