@@ -8,6 +8,8 @@ import { NotionPage } from "components/NotionPage";
 import { rootNotionPageId } from "utils/notion/config";
 import notion from "utils/notion/notion";
 
+import "react-notion-x/src/styles.css";
+
 export const getStaticProps = async (context: Record<string, any>) => {
   const pageId = (context.params.pageId as string) || rootNotionPageId;
   const recordMap = await notion.getPage(pageId);
