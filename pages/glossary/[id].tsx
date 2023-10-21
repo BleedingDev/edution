@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { ExtendedRecordMap } from "notion-types";
 
+import "react-notion-x/src/styles.css";
+
 import { NotionPage } from "components/NotionPage";
 import { rootNotionPageId } from "utils/notion/config";
 import notion from "utils/notion/notion";
