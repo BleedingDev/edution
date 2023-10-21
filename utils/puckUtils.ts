@@ -6,12 +6,12 @@ export const aspectRatio = {
   "4/3": "4 / 3",
   "2/3": "2 / 3",
   "2/1": "2 / 1",
-} as const
+} as const;
 
 export const selectAspectRatios = Object.keys(aspectRatio).map((key) => ({
   value: key,
   label: key,
-}))
+}));
 
 // Tailwind needs full string to match the search
 export const aspect: Record<keyof typeof aspectRatio, string> = {
@@ -22,10 +22,10 @@ export const aspect: Record<keyof typeof aspectRatio, string> = {
   "4/3": "aspect-4/3",
   "2/3": "aspect-2/3",
   "2/1": "aspect-2/1",
-} as const
+} as const;
 
 export const alignClasses = {
   left: "",
   center: "mx-auto",
   right: "ml-auto",
-}
+};
