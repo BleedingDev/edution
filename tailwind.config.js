@@ -1,9 +1,13 @@
-import { aspectRatio } from "./utils/puckUtils"
+import { aspectRatio } from "./utils/puckUtils";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./utils/**/*.{ts,tsx}"],
+  content: [
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./utils/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -75,4 +79,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

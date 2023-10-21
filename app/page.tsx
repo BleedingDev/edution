@@ -1,3 +1,3 @@
-import Index from "./[...page]/page"
+import Index from "./[...page]/page";
 
-export default Index
+export default Index;

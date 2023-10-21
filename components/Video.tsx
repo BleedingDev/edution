@@ -48,6 +48,7 @@ export function Video({
           {!!subtitles?.length &&
             subtitles.map((sub) => (
               <track
+                key={sub.label}
                 src={sub.src}
                 label={sub.label}
                 srcLang={sub.language}
@@ -59,6 +60,7 @@ export function Video({
           {!!chapters?.length &&
             chapters.map((chapter) => (
               <track
+                key={chapter.language}
                 src={chapter.src}
                 srcLang={chapter.language}
                 kind="chapters"

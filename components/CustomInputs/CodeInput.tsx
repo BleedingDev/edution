@@ -67,7 +67,7 @@ export function CodeInput(props) {
         />
         <datalist id="languages">
           {supportedLangs.map((l) => (
-            <option value={l} />
+            <option key={l} value={l} />
           ))}
         </datalist>
       </FieldLabel>

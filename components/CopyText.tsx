@@ -22,7 +22,7 @@ const processChildren = (
       return index < children.length - 1
         ? forCopy
           ? [concatenatedChildren, "  "]
-          : [concatenatedChildren, <br />, <br />]
+          : [concatenatedChildren, <br key="space1" />, <br key="space2" />]
         : [concatenatedChildren];
     });
   } else {
