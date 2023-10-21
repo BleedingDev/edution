@@ -16,9 +16,9 @@ export default function RootLayout({
     <html lang="en" className={font.className}>
       <body className="overflow-x-hidden">
         <Partytown
-          resolveUrl={function (url) {
+          resolveUrl={(url) => {
             if (url.hostname === "connect.facebook.net") {
-              var proxyUrl = new URL(
+              const proxyUrl = new URL(
                 `${process.env.NEXT_PUBLIC_SITE_URL}/fb${url.pathname}`
               );
               return proxyUrl;

@@ -38,8 +38,8 @@ export function Client({
       <Puck
         config={config as any}
         data={data}
-        onPublish={async (data: Data) => {
-          localStorage.setItem(key, JSON.stringify(data));
+        onPublish={async (newData: Data) => {
+          localStorage.setItem(key, JSON.stringify(newData));
         }}
         plugins={[headingAnalyzer]}
         renderHeaderActions={() => (
