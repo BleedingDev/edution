@@ -3,9 +3,6 @@ import { Lexend } from "next/font/google";
 import { Partytown } from "@builder.io/partytown/react";
 import { Tracking } from "components/Tracking";
 
-// core styles shared by all of react-notion-x (required)
-// ! This isn't working yet.
-import "react-notion-x/src/styles.css";
 import "./styles.css";
 
 const font = Lexend({ subsets: ["latin"] });
