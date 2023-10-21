@@ -1,6 +1,7 @@
 const withBuilderDevTools = require("@builder.io/dev-tools/next")()
 
-export default withBuilderDevTools({
+/** @type {import('next').NextConfig} */
+module.exports = withBuilderDevTools({
   reactStrictMode: true,
   transpilePackages: ["ui"],
   images: {
