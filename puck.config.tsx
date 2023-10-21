@@ -16,6 +16,7 @@ import { AskLLM } from "components/AskLLM";
 import { Code } from "components/Code";
 import { CodeInput } from "components/CustomInputs/CodeInput";
 import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs";
+import { Embed } from "components/Embed";
 
 export const supportedLangs = Object.keys(
   bundledLanguages
@@ -34,6 +35,7 @@ type Props = {
   CopyText: PropsFrom<typeof CopyText>;
   AskLLM: PropsFrom<typeof AskLLM>;
   Code: PropsFrom<typeof Code>;
+  Embed: PropsFrom<typeof Embed>;
 };
 
 export const config = {
@@ -260,6 +262,22 @@ export const config = {
         showLines: true,
       },
       render: Code as any,
+    },
+    Embed: {
+      fields: {
+        height: { type: "number" },
+        src: { type: "text" },
+        title: { type: "text" },
+        width: { type: "number" },
+      },
+
+      defaultProps: {
+        height: 100,
+        src: "https://google.com",
+        title: "Google",
+        width: 300,
+      },
+      render: Embed,
     },
   },
 } satisfies Config<Props>;
