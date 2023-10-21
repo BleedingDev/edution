@@ -124,7 +124,7 @@ export const config = {
         maxWidth: { type: "number" },
         subtitles: {
           type: "array",
-          getItemSummary: (item) => item.label || "en-US",
+          getItemSummary: (item: { label?: string }) => item.label || "en-US",
           arrayFields: {
             language: { type: "text" },
             label: { type: "text" },
@@ -133,7 +133,8 @@ export const config = {
         },
         chapters: {
           type: "array",
-          getItemSummary: (item) => item.language || "en-US",
+          getItemSummary: (item: { language?: string }) =>
+            item?.language || "en-US",
           arrayFields: {
             language: { type: "text" },
             src: { type: "text" },
@@ -166,7 +167,7 @@ export const config = {
         maxWidth: { type: "number" },
         subtitles: {
           type: "array",
-          getItemSummary: (item) => item.label || "en-US",
+          getItemSummary: (item: { label?: string }) => item?.label || "en-US",
           arrayFields: {
             language: { type: "text" },
             label: { type: "text" },
@@ -175,7 +176,8 @@ export const config = {
         },
         chapters: {
           type: "array",
-          getItemSummary: (item) => item.language || "en-US",
+          getItemSummary: (item: { language?: string }) =>
+            item?.language || "en-US",
           arrayFields: {
             language: { type: "text" },
             src: { type: "text" },

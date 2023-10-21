@@ -18,7 +18,7 @@ function getApiKey() {
   }
 
   const newApiKey = prompt("Please enter apiKey for service");
-  localStorage.setItem("apiKey", newApiKey);
+  localStorage.setItem("apiKey", `${newApiKey}`);
   return newApiKey;
 }
 

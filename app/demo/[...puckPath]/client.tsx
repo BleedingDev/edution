@@ -15,7 +15,7 @@ export function Client({
   isEdit,
 }: {
   path: string;
-  dataBE: Data;
+  dataBE?: Data | null;
   isEdit: boolean;
 }) {
   const key = `edution-demo:${path}`;
