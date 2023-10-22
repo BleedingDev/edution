@@ -19,7 +19,7 @@ import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs"
 export const supportedLangs = Object.keys(bundledLanguages) as BuiltinLanguage[]
 
 // TODO: Better Type Inference
-type Props = {
+type PuckProps = {
   Typography: PropsFrom<typeof Typography>
   Spoiler: PropsFrom<typeof Spoiler>
   Link: PropsFrom<typeof Link>
@@ -256,10 +256,10 @@ export const config = {
         code: { raw: "", processed: "", lang: "" },
         showLines: true,
       },
-      render: Code as any,
+      render: Code,
     },
   },
-} satisfies Config<Props>
+} satisfies Config<PuckProps>
 
 export const getDefaultData = (path: string) => ({
   content: [
