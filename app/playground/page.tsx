@@ -1,15 +1,8 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@shadcn/ui/accordion"
-import { AskLLM } from "components/AskLLM"
-import { CopyText } from "components/CopyText"
 
 export default async function Page() {
   return (
     <>
-      <AskLLM
-        predefinedPrompt='Generate a comma-separated list of 10 ice cream flavours:'
-        predefinedOutput='Chocolate, Vanilla, Strawberry, Mint Chip, Rocky Road, Cookie Dough, Butter Pecan, Neapolitan, Coffee, Coconut'
-      />
-      <CopyText content='Testing content to copy' />
       <section className='mx-auto mb-0 flex w-full max-w-[1312px] flex-col self-center p-5 max-md:mb-2.5 max-md:max-w-full'>
         <div className='flex w-[768px] max-w-full flex-col items-start'>
           <h1 className='text-5xl font-bold leading-[120%] text-black max-md:max-w-full max-md:text-4xl'>FAQs</h1>
