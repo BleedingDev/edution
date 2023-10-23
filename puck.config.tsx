@@ -265,17 +265,15 @@ export const config = {
     },
     Embed: {
       fields: {
-        height: { type: "number" },
         src: { type: "text" },
         title: { type: "text" },
+        height: { type: "number" },
         width: { type: "number" },
       },
 
       defaultProps: {
-        height: 100,
-        src: "https://google.com",
-        title: "Google",
-        width: 300,
+        src: "https://www.youtube.com/embed/QH2-TGUlwu4",
+        title: "Youtube",
       },
       render: Embed,
     },
