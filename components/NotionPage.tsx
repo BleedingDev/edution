@@ -4,11 +4,13 @@ import Head from "next/head"
 // import Image from 'next/image'
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { PropsFrom } from "@utils/types"
 import { ExtendedRecordMap } from "notion-types"
 import { getPageTitle } from "notion-utils"
 import { NotionRenderer } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
+const NestedLink = (props: PropsFrom<typeof Link>) => <Link {...props} href={`/glossary${props.href}`} />
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
 // -----------------------------------------------------------------------------
@@ -49,16 +51,15 @@ export const NotionPage = ({
 
   // TODO: Improve (Suffix with Coursition)
   const title = getPageTitle(recordMap)
-  console.log(title, recordMap)
 
   // useful for debugging from the dev console
-  if (typeof window !== "undefined") {
+  /*   if (typeof window !== "undefined") {
     const keys = Object.keys(recordMap?.block || {})
     const block = recordMap?.block?.[keys[0]]?.value
     const g = window as any
     g.recordMap = recordMap
     g.block = block
-  }
+  } */
 
   const socialDescription = "Coursition glossary"
 
@@ -104,6 +105,7 @@ export const NotionPage = ({
           // ? NOTE (transitive-bullshit 3/12/2023): I'm disabling next/image for this repo for now because the amount of traffic started costing me hundreds of dollars a month in Vercel image optimization costs. I'll probably re-enable it in the future if I can find a better solution.
           // nextImage: Image,
           nextLink: Link,
+          PageLink: NestedLink,
           Collection,
           Equation,
           Pdf,

@@ -21,6 +21,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
 
   if (previewImagesEnabled) {
     const previewImageMap = await getPreviewImageMap(recordMap)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(recordMap as any).preview_images = previewImageMap
   }
 

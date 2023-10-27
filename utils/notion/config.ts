@@ -6,7 +6,7 @@ export const rootNotionSpaceId = "fde5ac74-eea3-4527-8f00-4482710e1af3"
 // NOTE: having this enabled can be pretty expensive as it re-generates preview
 // images each time a page is built. In a production setting, we recommend that
 // you cache the preview image results in a key-value database.
-export const previewImagesEnabled = true
+export const previewImagesEnabled = false
 
 // Whether to use the official public Notion API or the unofficial private API.
 // Note that the official API doesn't expose formatting options for many blocks
@@ -18,4 +18,4 @@ export const useOfficialNotionAPI =
 export const isDev = process.env.NODE_ENV === "development" || !process.env.NODE_ENV
 
 export const port = process.env.PORT || 3000
-export const rootDomain = isDev ? `localhost:${port}` : null
+export const rootDomain = isDev ? `localhost:${port}/glossary` : "/glossary"

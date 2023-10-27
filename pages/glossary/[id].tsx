@@ -10,7 +10,7 @@ import { getPage } from "utils/notion/notion"
 import "react-notion-x/src/styles.css"
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pageId = context.params?.pageId as string
+  const pageId = context.params?.id as string
   const recordMap = await getPage(pageId)
 
   return {
@@ -42,6 +42,7 @@ export async function getStaticPaths() {
   const paths = Object.keys(pages)
     .map((pageId) => mapPageUrl(pageId))
     .filter((path) => path && path !== "/")
+    .map((path) => `/glossary${path}`)
 
   return {
     paths,

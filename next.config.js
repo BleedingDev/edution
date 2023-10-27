@@ -24,6 +24,5 @@ module.exports = withBuilderDevTools({
   },
   experimental: {
     nextScriptWorkers: true,
-    serverActions: true,
   },
 })
