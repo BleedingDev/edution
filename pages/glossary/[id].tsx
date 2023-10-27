@@ -1,15 +1,21 @@
 import * as React from "react";
 
 import { ExtendedRecordMap } from "notion-types";
+import { getAllPagesInSpace } from "notion-utils";
+import { defaultMapPageUrl } from "react-notion-x";
 
-import "react-notion-x/src/styles.css";
-
+import * as notion from "@utils/notion/notion";
 import { NotionPage } from "components/NotionPage";
-import { rootNotionPageId } from "utils/notion/config";
-import notion from "utils/notion/notion";
+import {
+  isDev,
+  previewImagesEnabled,
+  rootDomain,
+  rootNotionPageId,
+  rootNotionSpaceId,
+} from "@utils/notion/config";
 
-export const getStaticProps = async (context: Record<string, any>) => {
-  const pageId = (context.params.pageId as string) || rootNotionPageId;
+export const getStaticProps = async (context) => {
+  const pageId = context.params.pageId as string;
   const recordMap = await notion.getPage(pageId);
 
   return {
@@ -21,12 +27,46 @@ export const getStaticProps = async (context: Record<string, any>) => {
 };
 
 export async function getStaticPaths() {
+  if (isDev) {
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
+
+  const mapPageUrl = defaultMapPageUrl(rootNotionPageId);
+
+  // This crawls all public pages starting from the given root page in order
+  // for next.js to pre-generate all pages via static site generation (SSG).
+  // This is a useful optimization but not necessary; you could just as easily
+  // set paths to an empty array to not pre-generate any pages at build time.
+  const pages = await getAllPagesInSpace(
+    rootNotionPageId,
+    rootNotionSpaceId,
+    notion.getPage,
+    {
+      traverseCollections: false,
+    }
+  );
+
+  const paths = Object.keys(pages)
+    .map((pageId) => mapPageUrl(pageId))
+    .filter((path) => path && path !== "/");
+
   return {
-    paths: [],
+    paths,
     fallback: true,
   };
 }
 
 export default function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
-  return <NotionPage recordMap={recordMap} rootPageId={rootNotionPageId} />;
+  return (
+    <NotionPage
+      recordMap={recordMap}
+      rootDomain={rootDomain as string}
+      rootPageId={rootNotionPageId}
+      previewImagesEnabled={previewImagesEnabled}
+    />
+  );
 }
+import "react-notion-x/src/styles.css";
