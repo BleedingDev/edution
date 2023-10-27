@@ -14,6 +14,7 @@ const linkFactory =
   (nested: string = "") =>
   // eslint-disable-next-line react/display-name
   (props: PropsFrom<typeof Link>) => <Link {...props} href={`${nested}${props.href}`} />
+
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
 // -----------------------------------------------------------------------------
