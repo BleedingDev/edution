@@ -10,7 +10,10 @@ import { getPageTitle } from "notion-utils"
 import { NotionRenderer } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
-const NestedLink = (props: PropsFrom<typeof Link>) => <Link {...props} href={`/glossary${props.href}`} />
+const linkFactory =
+  (nested: string = "") =>
+  // eslint-disable-next-line react/display-name
+  (props: PropsFrom<typeof Link>) => <Link {...props} href={`${nested}${props.href}`} />
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
 // -----------------------------------------------------------------------------
@@ -33,11 +36,13 @@ export const NotionPage = ({
   previewImagesEnabled,
   rootPageId,
   rootDomain,
+  subpage,
 }: {
   recordMap: ExtendedRecordMap
   previewImagesEnabled?: boolean
   rootPageId?: string
   rootDomain?: string
+  subpage?: string
 }) => {
   const router = useRouter()
 
@@ -48,6 +53,8 @@ export const NotionPage = ({
   if (!recordMap) {
     return null
   }
+
+  const NestedLink = linkFactory(subpage)
 
   // TODO: Improve (Suffix with Coursition)
   const title = getPageTitle(recordMap)

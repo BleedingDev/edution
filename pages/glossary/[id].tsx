@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       recordMap,
     },
-    revalidate: 10,
+    revalidate: 3600,
   }
 }
 
@@ -57,6 +57,7 @@ export default function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
       rootDomain={rootDomain as string}
       rootPageId={rootNotionPageId}
       previewImagesEnabled={previewImagesEnabled}
+      subpage='/glossary'
     />
   )
 }
