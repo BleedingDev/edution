@@ -14,7 +14,7 @@ export function Embed({ src, title, width, height }: Props) {
       sandbox="allow-forms allow-scripts"
       src={src}
       title={title}
-      width={width ?? "100%"}
+      width={`${width ?? 100}%`}
       height={height ?? "300px"}
       frameBorder="0"
       allowFullScreen
