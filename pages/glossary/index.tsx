@@ -1,28 +1,22 @@
-import * as React from "react";
+import * as React from "react"
+import { previewImagesEnabled, rootDomain, rootNotionPageId } from "@utils/notion/config"
+import { NotionPage } from "components/NotionPage"
+import { ExtendedRecordMap } from "notion-types"
+import { getPage } from "utils/notion/notion"
 
-import { ExtendedRecordMap } from "notion-types";
-
-import * as notion from "@utils/notion/notion";
-import { NotionPage } from "components/NotionPage";
-import {
-  previewImagesEnabled,
-  rootDomain,
-  rootNotionPageId,
-} from "@utils/notion/config";
-
-import "react-notion-x/src/styles.css";
+import "react-notion-x/src/styles.css"
 
 export const getStaticProps = async () => {
-  const pageId = rootNotionPageId;
-  const recordMap = await notion.getPage(pageId);
+  const pageId = rootNotionPageId
+  const recordMap = await getPage(pageId)
 
   return {
     props: {
       recordMap,
     },
     revalidate: 10,
-  };
-};
+  }
+}
 
 export default function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
   return (
@@ -32,6 +26,5 @@ export default function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
       rootPageId={rootNotionPageId}
       previewImagesEnabled={previewImagesEnabled}
     />
-  );
+  )
 }
-//

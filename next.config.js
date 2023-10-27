@@ -1,5 +1,6 @@
-const withBuilderDevTools = require("@builder.io/dev-tools/next")();
+const withBuilderDevTools = require("@builder.io/dev-tools/next")()
 
+/** @type {import('next').NextConfig} */
 module.exports = withBuilderDevTools({
   reactStrictMode: true,
   transpilePackages: ["ui"],
@@ -19,10 +20,10 @@ module.exports = withBuilderDevTools({
         source: "/fb/:path*",
         destination: "https://connect.facebook.net/:path*",
       },
-    ];
+    ]
   },
   experimental: {
     nextScriptWorkers: true,
     serverActions: true,
   },
-});
+})

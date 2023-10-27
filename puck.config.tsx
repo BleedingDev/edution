@@ -1,40 +1,37 @@
-import type { Config } from "@measured/puck";
-import { selectAspectRatios } from "@utils/puckUtils";
-import { PropsFrom } from "@utils/types";
-import { Root } from "components/Root";
+import type { Config } from "@measured/puck"
+import { selectAspectRatios } from "@utils/puckUtils"
+import { PropsFrom } from "@utils/types"
+import { AskLLM } from "components/AskLLM"
+import { Audio } from "components/Audio"
+import { Code } from "components/Code"
+import { CopyText } from "components/CopyText"
+import { CodeInput } from "components/CustomInputs/CodeInput"
+import { Divider } from "components/Divider"
+import { Image } from "components/Image"
+import { Link } from "components/Link"
+import { List } from "components/List"
+import { Root } from "components/Root"
+import { Spoiler } from "components/Spoiler"
+import { Typography } from "components/Typography"
+import { Video } from "components/Video"
+import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs"
 
-import { Audio } from "components/Audio";
-import { Image } from "components/Image";
-import { Link } from "components/Link";
-import { Spoiler } from "components/Spoiler";
-import { Video } from "components/Video";
-import { Typography } from "components/Typography";
-import { Divider } from "components/Divider";
-import { List } from "components/List";
-import { CopyText } from "components/CopyText";
-import { AskLLM } from "components/AskLLM";
-import { Code } from "components/Code";
-import { CodeInput } from "components/CustomInputs/CodeInput";
-import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs";
-
-export const supportedLangs = Object.keys(
-  bundledLanguages
-) as BuiltinLanguage[];
+export const supportedLangs = Object.keys(bundledLanguages) as BuiltinLanguage[]
 
 // TODO: Better Type Inference
-type Props = {
-  Typography: PropsFrom<typeof Typography>;
-  Spoiler: PropsFrom<typeof Spoiler>;
-  Link: PropsFrom<typeof Link>;
-  Image: PropsFrom<typeof Image>;
-  Video: PropsFrom<typeof Video>;
-  Audio: PropsFrom<typeof Audio>;
-  Divider: PropsFrom<typeof Divider>;
-  List: PropsFrom<typeof List>;
-  CopyText: PropsFrom<typeof CopyText>;
-  AskLLM: PropsFrom<typeof AskLLM>;
-  Code: PropsFrom<typeof Code>;
-};
+type PuckProps = {
+  Typography: PropsFrom<typeof Typography>
+  Spoiler: PropsFrom<typeof Spoiler>
+  Link: PropsFrom<typeof Link>
+  Image: PropsFrom<typeof Image>
+  Video: PropsFrom<typeof Video>
+  Audio: PropsFrom<typeof Audio>
+  Divider: PropsFrom<typeof Divider>
+  List: PropsFrom<typeof List>
+  CopyText: PropsFrom<typeof CopyText>
+  AskLLM: PropsFrom<typeof AskLLM>
+  Code: PropsFrom<typeof Code>
+}
 
 export const config = {
   root: {
@@ -124,7 +121,7 @@ export const config = {
         maxWidth: { type: "number" },
         subtitles: {
           type: "array",
-          getItemSummary: (item) => item.label || "en-US",
+          getItemSummary: (item: { label?: string }) => item.label || "en-US",
           arrayFields: {
             language: { type: "text" },
             label: { type: "text" },
@@ -133,7 +130,7 @@ export const config = {
         },
         chapters: {
           type: "array",
-          getItemSummary: (item) => item.language || "en-US",
+          getItemSummary: (item: { language?: string }) => item?.language || "en-US",
           arrayFields: {
             language: { type: "text" },
             src: { type: "text" },
@@ -166,7 +163,7 @@ export const config = {
         maxWidth: { type: "number" },
         subtitles: {
           type: "array",
-          getItemSummary: (item) => item.label || "en-US",
+          getItemSummary: (item: { label?: string }) => item?.label || "en-US",
           arrayFields: {
             language: { type: "text" },
             label: { type: "text" },
@@ -175,7 +172,7 @@ export const config = {
         },
         chapters: {
           type: "array",
-          getItemSummary: (item) => item.language || "en-US",
+          getItemSummary: (item: { language?: string }) => item?.language || "en-US",
           arrayFields: {
             language: { type: "text" },
             src: { type: "text" },
@@ -259,10 +256,10 @@ export const config = {
         code: { raw: "", processed: "", lang: "" },
         showLines: true,
       },
-      render: Code as any,
+      render: Code,
     },
   },
-} satisfies Config<Props>;
+} satisfies Config<PuckProps>
 
 export const getDefaultData = (path: string) => ({
   content: [
@@ -276,6 +273,6 @@ export const getDefaultData = (path: string) => ({
     },
   ],
   root: { title: "Demo page" },
-});
+})
 
-export default config;
+export default config
