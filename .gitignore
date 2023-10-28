@@ -37,4 +37,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# sitemap
+robots.txt
+sitemap*.xml
+
 database.json

@@ -1,6 +1,5 @@
 const withBuilderDevTools = require("@builder.io/dev-tools/next")()
 
-/** @type {import('next').NextConfig} */
 module.exports = withBuilderDevTools({
   reactStrictMode: true,
   transpilePackages: ["ui"],
@@ -22,6 +21,8 @@ module.exports = withBuilderDevTools({
       },
     ]
   },
+  siteUrl: process.env.SITE_URL || "http://localhost:3000",
+  generateRobotsTxt: true,
   experimental: {
     nextScriptWorkers: true,
   },

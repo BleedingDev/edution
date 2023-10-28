@@ -1,7 +1,5 @@
-// TODO: change this to the notion ID of the page you want test.
-// TODO: This should be dynamic based on user's search
-export const rootNotionPageId = "067dd719a912471ea9a3ac10710e7fdf"
-export const rootNotionSpaceId = "fde5ac74-eea3-4527-8f00-4482710e1af3"
+export const rootNotionPageId = "95ae89c4af514c94bec8d2968f0a3a43"
+export const rootNotionSpaceId = undefined
 
 // NOTE: having this enabled can be pretty expensive as it re-generates preview
 // images each time a page is built. In a production setting, we recommend that
