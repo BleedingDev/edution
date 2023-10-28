@@ -10,7 +10,7 @@ export function List({ lists, ordered }: Props) {
   return (
     <Tag className={`${listStyle}`}>
       {lists.map(({ content }) => (
-        <li key={content.replaceAll(" ", "").toLowerCase()}>{content}</li>
+        <li key={content?.replaceAll(" ", "").toLowerCase()}>{content}</li>
       ))}
     </Tag>
   )
