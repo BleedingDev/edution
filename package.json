@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "partytown": "partytown copylib public/~partytown",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@builder.io/dev-tools": "^0.1.23",
@@ -32,6 +33,7 @@
     "lqip-modern": "^2.0.0",
     "lucide-react": "^0.290.0",
     "next": "^14.0.0",
+    "next-sitemap": "^4.2.3",
     "notion-client": "^6.16.0",
     "notion-compat": "^6.16.0",
     "notion-types": "^6.16.0",
