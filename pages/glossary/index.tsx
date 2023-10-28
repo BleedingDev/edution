@@ -25,6 +25,7 @@ export default function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
       rootDomain={rootDomain as string}
       rootPageId={rootNotionPageId}
       previewImagesEnabled={previewImagesEnabled}
+      subpage='/glossary'
     />
   )
 }
