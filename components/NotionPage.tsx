@@ -11,7 +11,7 @@ import { NotionRenderer } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
 const linkFactory =
-  (nested: string = "") =>
+  (nested = "") =>
   // eslint-disable-next-line react/display-name
   (props: PropsFrom<typeof Link>) => <Link {...props} href={`${nested}${props.href}`} />
 
