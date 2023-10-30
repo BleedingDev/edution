@@ -10,6 +10,7 @@ import { Divider } from "components/Divider"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
+import { Quiz } from "components/Quiz"
 import { Root } from "components/Root"
 import { Spoiler } from "components/Spoiler"
 import { Typography } from "components/Typography"
@@ -31,6 +32,7 @@ type PuckProps = {
   CopyText: PropsFrom<typeof CopyText>
   AskLLM: PropsFrom<typeof AskLLM>
   Code: PropsFrom<typeof Code>
+  Quiz: PropsFrom<typeof Quiz>
 }
 
 export const config = {
@@ -257,6 +259,21 @@ export const config = {
         showLines: true,
       },
       render: Code,
+    },
+    Quiz: {
+      fields: {
+        question: {
+          type: "text",
+        },
+        answer: {
+          type: "text",
+        },
+      },
+      render: Quiz,
+      defaultProps: {
+        question: "What is coursiton",
+        answer: "Course building platform",
+      },
     },
   },
 } satisfies Config<PuckProps>
