@@ -4,7 +4,6 @@ import { Button } from "@shadcn/ui/button"
 import { Checkbox } from "@shadcn/ui/checkbox"
 import { Label } from "@shadcn/ui/label"
 import { RadioGroup, RadioGroupItem } from "@shadcn/ui/radio-group"
-import { Separator } from "@shadcn/ui/separator"
 
 import { Typography } from "./Typography"
 
@@ -33,7 +32,6 @@ export function Quiz({ question, answers }: Props) {
     }
     alert("Incorrect!")
   }
-
 
   return (
     <div className='relative flex justify-between gap-4 '>
@@ -67,14 +65,8 @@ export function Quiz({ question, answers }: Props) {
             </RadioGroup>
           )}
 
-          <Button>Submit</Button>
+          <Button type='submit'>Submit</Button>
         </form>
-      </div>
-
-      <div className='flex w-1/2'>
-        <Separator orientation='vertical' />
-        <Typography variant='h2'>Status</Typography>
-        <div>{"results"}</div>
       </div>
     </div>
   )
