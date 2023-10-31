@@ -1,7 +1,10 @@
 "use client"
 
-import { FormEventHandler } from "react"
 import { Button } from "@shadcn/ui/button"
+import { Checkbox } from "@shadcn/ui/checkbox"
+import { Label } from "@shadcn/ui/label"
+import { RadioGroup, RadioGroupItem } from "@shadcn/ui/radio-group"
+import { Separator } from "@shadcn/ui/separator"
 
 import { Typography } from "./Typography"
 
@@ -16,40 +19,62 @@ interface Props {
 }
 
 export function Quiz({ question, answers }: Props) {
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault()
-  }
-
+  const correctAnswers = answers.filter((answer) => answer.isCorrect).map((answer) => answer.text)
   const isMultipleCorrect = answers.filter((answer) => answer.isCorrect).length > 1
 
-  const SelectAlert = () => (
-    <>
-      {isMultipleCorrect ? (
-        <div className='absolute top-16'>
-          <Typography variant='text'>Select all that apply.</Typography>
-        </div>
-      ) : null}
-    </>
-  )
+  async function onSubmit(formdata: FormData) {
+    const selectedAnswers = Array.from(formdata.getAll("answer"))
+
+    const correctCount = correctAnswers.length
+    const selectedCount = selectedAnswers.length
+
+    if (correctCount === selectedCount && correctAnswers.every((answer) => selectedAnswers.includes(answer))) {
+      alert("Correct!")
+    }
+    alert("Incorrect!")
+  }
+
 
   return (
-    <div className='relative justify-between gap-4 selection:flex '>
+    <div className='relative flex justify-between gap-4 '>
       <div className='flex w-1/2 flex-col gap-3'>
         <Typography variant='h3'>{question}</Typography>
-        <SelectAlert />
-        <form className='mt-8 flex flex-col space-y-3' onSubmit={handleSubmit}>
-          {answers.map(({ text }) => {
-            const idFromText = text?.replaceAll(" ", "")
-            return (
-              <div className='flex items-center space-x-2' key={idFromText}>
-                {/* Ensures one deselects the other by assigning one `name` to all html radios. */}
-                <input type={isMultipleCorrect ? "checkbox" : "radio"} id={idFromText} value={text} name='answer' />
-                <label htmlFor={idFromText}>{text}</label>
-              </div>
-            )
-          })}
+
+        {isMultipleCorrect && (
+          <div className='absolute top-16'>
+            <Typography variant='text'>Select all that apply.</Typography>
+          </div>
+        )}
+
+        <form className='mt-8 flex flex-col space-y-3' action={onSubmit}>
+          {isMultipleCorrect ? (
+            <div className='grid grid-cols-1 gap-2'>
+              {answers.map(({ text }) => (
+                <div className='flex items-center gap-2' key={text?.replaceAll(" ", "")}>
+                  <Checkbox name={"answer"} value={text} id={text.replaceAll(" ", "")} />
+                  <Label htmlFor={text?.replaceAll(" ", "")}>{text}</Label>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <RadioGroup name='answer'>
+              {answers.map(({ text }) => (
+                <div className='flex items-center gap-2' key={text?.replaceAll(" ", "")}>
+                  <RadioGroupItem value={text} id={text?.replaceAll(" ", "")} required />
+                  <Label htmlFor={text?.replaceAll(" ", "")}>{text}</Label>
+                </div>
+              ))}
+            </RadioGroup>
+          )}
+
           <Button>Submit</Button>
         </form>
+      </div>
+
+      <div className='flex w-1/2'>
+        <Separator orientation='vertical' />
+        <Typography variant='h2'>Status</Typography>
+        <div>{"results"}</div>
       </div>
     </div>
   )
