@@ -260,19 +260,36 @@ export const config = {
       },
       render: Code,
     },
+
     Quiz: {
       fields: {
         question: {
           type: "text",
         },
-        answer: {
-          type: "text",
+        answers: {
+          type: "array",
+          label: "Options",
+          getItemSummary: (item) => item.text || "New Option",
+          arrayFields: {
+            text: { type: "text" },
+            isCorrect: {
+              type: "radio",
+              label: "status",
+              options: [
+                { label: "correct", value: true },
+                { label: "not correct", value: false },
+              ],
+            },
+          },
         },
       },
       render: Quiz,
       defaultProps: {
         question: "What is coursiton",
-        answer: "Course building platform",
+        answers: [
+          { text: "Course building platform", isCorrect: true },
+          { text: "An Ecommerce platform", isCorrect: false },
+        ],
       },
     },
   },

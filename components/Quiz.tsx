@@ -1,58 +1,55 @@
 "use client"
 
+import { FormEventHandler } from "react"
 import { Button } from "@shadcn/ui/button"
-import { Separator } from "@shadcn/ui/separator"
-import { FormEventHandler, useState } from "react"
-import { Typography } from "./Typography"
-import { Textarea } from "@shadcn/ui/textarea"
 
-/**
- * Don't see a need for the { isCorrect } prop now as we don't have the answer as an array
- */
+import { Typography } from "./Typography"
+
+type Answer = {
+  text: string
+  isCorrect: boolean
+}
+
 interface Props {
   question: string
-  answer: string
+  answers: Answer[]
 }
 
-function validateAnswer(answer: string) {
-  return answer.replaceAll("", "").toLowerCase()
-}
-
-export function Quiz({ question, answer }: Props) {
-  const [isCorrect, setIsCorrect] = useState(false)
-
+export function Quiz({ question, answers }: Props) {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
-
-    const userResponse = validateAnswer(event.currentTarget.quiz.value)
-    const correctAnswer = validateAnswer("Coursition")
-
-    if (userResponse !== correctAnswer) return
-    setIsCorrect(true)
   }
 
+  const isMultipleCorrect = answers.filter((answer) => answer.isCorrect).length > 1
+
+  const SelectAlert = () => (
+    <>
+      {isMultipleCorrect ? (
+        <div className='absolute top-16'>
+          <Typography variant='text'>Select all that apply.</Typography>
+        </div>
+      ) : null}
+    </>
+  )
+
   return (
-    <div className="flex justify-between gap-4">
-      <div className="flex flex-col gap-3 w-1/2">
-        <Typography variant="h3">{question}</Typography>
-        <form className="contents" onSubmit={handleSubmit}>
-          <Textarea
-            name="quiz"
-            required
-            placeholder="Enter your answer here"
-            className="h-28 w-full rounded-md border-2 border-gray-300 p-2"
-            defaultValue={answer ?? ""}
-          />
+    <div className='relative justify-between gap-4 selection:flex '>
+      <div className='flex w-1/2 flex-col gap-3'>
+        <Typography variant='h3'>{question}</Typography>
+        <SelectAlert />
+        <form className='mt-8 flex flex-col space-y-3' onSubmit={handleSubmit}>
+          {answers.map(({ text }) => {
+            const idFromText = text?.replaceAll(" ", "")
+            return (
+              <div className='flex items-center space-x-2' key={idFromText}>
+                {/* Ensures one deselects the other by assigning one `name` to all html radios. */}
+                <input type={isMultipleCorrect ? "checkbox" : "radio"} id={idFromText} value={text} name='answer' />
+                <label htmlFor={idFromText}>{text}</label>
+              </div>
+            )
+          })}
           <Button>Submit</Button>
         </form>
-      </div>
-
-      <div className="flex gap-3 w-1/2">
-        <Separator orientation="vertical" />
-        <div className="flex flex-col w-full  border">
-          <Typography variant="h3">Status</Typography>
-          <div>{isCorrect ? "Correct!" : "Incorrect!"}</div>
-        </div>
       </div>
     </div>
   )
