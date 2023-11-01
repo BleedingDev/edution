@@ -55,7 +55,7 @@ export function Quiz({ question, answers }: Props) {
               ))}
             </div>
           ) : (
-            <RadioGroup name='answer'>
+            <RadioGroup>
               {answers.map(({ text }) => (
                 <div className='flex items-center gap-2' key={text?.replaceAll(" ", "")}>
                   <RadioGroupItem value={text} id={text?.replaceAll(" ", "")} required />
