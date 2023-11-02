@@ -18,7 +18,12 @@ export function Video({
   maxWidth: number
   aspectRatio: keyof typeof twAspectRatio
   align: keyof typeof alignClasses
-  subtitles?: { label: string; language: string; src: string; default?: boolean }[]
+  subtitles?: {
+    label: string
+    language: string
+    src: string
+    default?: boolean
+  }[]
   chapters?: { src: string; language: string }[]
 }) {
   const [width, height] = aspectRatio.split("/")
@@ -31,13 +36,22 @@ export function Video({
     >
       <MediaPlayer title={title} src={src} aspectRatio={aspectRatioNumber} crossorigin=''>
         <MediaOutlet>
-          {subtitles.length &&
+          {!!subtitles?.length &&
             subtitles.map((sub) => (
-              <track src={sub.src} label={sub.label} srcLang={sub.language} kind='subtitles' default={sub.default} />
+              <track
+                key={sub.label}
+                src={sub.src}
+                label={sub.label}
+                srcLang={sub.language}
+                kind='subtitles'
+                default={sub.default}
+              />
             ))}
 
-          {chapters.length &&
-            chapters.map((chapter) => <track src={chapter.src} srcLang={chapter.language} kind='chapters' default />)}
+          {!!chapters?.length &&
+            chapters.map((chapter) => (
+              <track key={chapter.language} src={chapter.src} srcLang={chapter.language} kind='chapters' default />
+            ))}
         </MediaOutlet>
         <MediaCommunitySkin />
       </MediaPlayer>

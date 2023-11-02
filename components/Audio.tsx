@@ -16,20 +16,34 @@ export function Audio({
   title: string
   maxWidth: number
   align: keyof typeof alignClasses
-  subtitles?: { label: string; language: string; src: string; default?: boolean }[]
+  subtitles?: {
+    label: string
+    language: string
+    src: string
+    default?: boolean
+  }[]
   chapters?: { src: string; language: string }[]
 }) {
   return (
     <div className={`flex ${alignClasses[align]}`} style={{ maxWidth: `${maxWidth}%` }}>
       <MediaPlayer title={title} src={src} crossorigin=''>
         <MediaOutlet>
-          {!!subtitles.length &&
+          {!!subtitles?.length &&
             subtitles.map((sub) => (
-              <track src={sub.src} label={sub.label} srcLang={sub.language} kind='subtitles' default={sub.default} />
+              <track
+                key={sub.label}
+                src={sub.src}
+                label={sub.label}
+                srcLang={sub.language}
+                kind='subtitles'
+                default={sub.default}
+              />
             ))}
 
-          {!!chapters.length &&
-            chapters.map((chapter) => <track src={chapter.src} srcLang={chapter.language} kind='chapters' default />)}
+          {!!chapters?.length &&
+            chapters.map((chapter) => (
+              <track key={chapter.language} src={chapter.src} srcLang={chapter.language} kind='chapters' default />
+            ))}
         </MediaOutlet>
         <MediaCommunitySkin />
       </MediaPlayer>
