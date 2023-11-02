@@ -1,14 +1,11 @@
-"use client";
+"use client"
 
-import { Button } from "@shadcn/ui/button";
-import { Checkbox } from "@shadcn/ui/checkbox";
-import { Label } from "@shadcn/ui/label";
-import { RadioGroup, RadioGroupItem } from "@shadcn/ui/radio-group";
+import { Button } from "@shadcn/ui/button"
+import { Checkbox } from "@shadcn/ui/checkbox"
+import { Label } from "@shadcn/ui/label"
+import { RadioGroup, RadioGroupItem } from "@shadcn/ui/radio-group"
 
-
-
-import { Typography } from "./Typography";
-
+import { Typography } from "./Typography"
 
 type Answer = {
   text: string
