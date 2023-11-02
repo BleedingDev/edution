@@ -1,11 +1,14 @@
-"use client"
+"use client";
 
-import { Button } from "@shadcn/ui/button"
-import { Checkbox } from "@shadcn/ui/checkbox"
-import { Label } from "@shadcn/ui/label"
-import { RadioGroup, RadioGroupItem } from "@shadcn/ui/radio-group"
+import { Button } from "@shadcn/ui/button";
+import { Checkbox } from "@shadcn/ui/checkbox";
+import { Label } from "@shadcn/ui/label";
+import { RadioGroup, RadioGroupItem } from "@shadcn/ui/radio-group";
 
-import { Typography } from "./Typography"
+
+
+import { Typography } from "./Typography";
+
 
 type Answer = {
   text: string
@@ -18,10 +21,10 @@ interface Props {
 }
 
 export function Quiz({ question, answers }: Props) {
-  const correctAnswers = answers.filter((answer) => answer.isCorrect).map((answer) => answer.text)
   const isMultipleCorrect = answers.filter((answer) => answer.isCorrect).length > 1
 
   async function onSubmit(formdata: FormData) {
+    const correctAnswers = answers.filter((answer) => answer.isCorrect).map((answer) => answer.text)
     const selectedAnswers = Array.from(formdata.getAll("answer"))
 
     const correctCount = correctAnswers.length
