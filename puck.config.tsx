@@ -16,6 +16,7 @@ import { Spoiler } from "components/Spoiler"
 import { Typography } from "components/Typography"
 import { Video } from "components/Video"
 import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs"
+import { Embed } from "components/Embed";
 
 export const supportedLangs = Object.keys(bundledLanguages) as BuiltinLanguage[]
 
@@ -32,7 +33,11 @@ type PuckProps = {
   CopyText: PropsFrom<typeof CopyText>
   AskLLM: PropsFrom<typeof AskLLM>
   Code: PropsFrom<typeof Code>
+
   Quiz: PropsFrom<typeof Quiz>
+
+  Embed: PropsFrom<typeof Embed>
+
 }
 
 export const config = {
@@ -291,6 +296,21 @@ export const config = {
           { text: "An Ecommerce platform", isCorrect: false },
         ],
       },
+
+    Embed: {
+      fields: {
+        src: { type: "text" },
+        title: { type: "text" },
+        height: { type: "number" },
+        width: { type: "number" },
+      },
+
+      defaultProps: {
+        src: "https://www.youtube.com/embed/QH2-TGUlwu4",
+        title: "Youtube",
+      },
+      render: Embed,
+
     },
   },
 } satisfies Config<PuckProps>
