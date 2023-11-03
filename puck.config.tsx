@@ -32,6 +32,7 @@ type PuckProps = {
   CopyText: PropsFrom<typeof CopyText>
   AskLLM: PropsFrom<typeof AskLLM>
   Code: PropsFrom<typeof Code>
+  Embed: PropsFrom<typeof Embed>
 }
 
 export const config = {
