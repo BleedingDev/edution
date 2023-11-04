@@ -33,11 +33,8 @@ type PuckProps = {
   CopyText: PropsFrom<typeof CopyText>
   AskLLM: PropsFrom<typeof AskLLM>
   Code: PropsFrom<typeof Code>
-
   Quiz: PropsFrom<typeof Quiz>
-
   Embed: PropsFrom<typeof Embed>
-
 }
 
 export const config = {
@@ -265,6 +262,21 @@ export const config = {
       },
       render: Code,
     },
+    Embed: {
+      defaultProps: {
+        src: "https://www.youtube.com/embed/3vAnuqZ8yHg",
+        title: "Sprite Fight",
+        width: 560,
+        height: 315,
+      },
+      fields: {
+        src: { type: "text" },
+        title: { type: "text" },
+        width: { type: "number" },
+        height: { type: "number" },
+      },
+      render: Embed,
+    },
     Quiz: {
       fields: {
         question: {
@@ -295,21 +307,6 @@ export const config = {
           { text: "An Ecommerce platform", isCorrect: false },
         ],
       },
-
-    Embed: {
-      fields: {
-        src: { type: "text" },
-        title: { type: "text" },
-        height: { type: "number" },
-        width: { type: "number" },
-      },
-
-      defaultProps: {
-        src: "https://www.youtube.com/embed/QH2-TGUlwu4",
-        title: "Youtube",
-      },
-      render: Embed,
-
     },
   },
 } satisfies Config<PuckProps>
