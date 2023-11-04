@@ -293,6 +293,18 @@ export const config = {
       },
     },
   },
+  categories: {
+    layout: {
+      components: ["Divider", "Spoiler"],
+    },
+    typography: {
+      components: ["Typography"],
+    },
+    interactive: {
+      title: "Actions",
+      components: ["List", "Link", "Button", "CopyText"],
+    },
+  },
 } satisfies Config<PuckProps>
 
 export const getDefaultData = (path: string) => ({

@@ -15,11 +15,11 @@ dependencies:
     specifier: ^2.0.8
     version: 2.0.8
   '@measured/puck':
-    specifier: ^0.10.0
-    version: 0.10.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.11.0
+    version: 0.11.0(react-dom@18.2.0)(react@18.2.0)
   '@measured/puck-plugin-heading-analyzer':
-    specifier: ^0.10.0
-    version: 0.10.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.11.0
+    version: 0.11.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   '@notionhq/client':
     specifier: ^2.2.13
     version: 2.2.13
@@ -629,8 +629,8 @@ packages:
     resolution: {integrity: sha512-fkUqNfnJK1kgfsKimaLp2jcfQr7NXwHZWBhqhQ3pifnYSZrBJv+4tU/klKyGf1mA33mVBYustCAgilJppzGjig==}
     dev: false
 
-  /@measured/puck-plugin-heading-analyzer@0.10.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-kTykdx/qJWxO24fI6d+FHhkeJMNj66F3asA8TNcgroDPzD6WxDa0phSDcMs4pRURfsDWDZpDUaHaYdQk6+ZF9w==}
+  /@measured/puck-plugin-heading-analyzer@0.11.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-nvZ38Y8MOrl1zbxAtLbexaAofmJ2xBA0cZ0rGSSjyVAEdssf+/miXkVPNaFVKRgWoF7xcE1liF0HYgcC2RO++w==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0
     dependencies:
@@ -641,8 +641,8 @@ packages:
       - react-dom
     dev: false
 
-  /@measured/puck@0.10.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-lVkF7Dh/fAf5zvqEShUZt11Gad3i9/LAttxi0Lnm3oxVO8FE4yJ7kVpvNzg8s7gKbeeju3GbUPmmn7InlIVThA==}
+  /@measured/puck@0.11.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-I5+QZBEckks9h5QF1rTLoFGGpt4p6KXyaafzSOmms1NgI56dyxzkH3s9K/SKZezHWvlbAfmVV+QcWKCWDXw/jA==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0
     dependencies:
