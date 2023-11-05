@@ -23,29 +23,23 @@ export function Quiz({ question, answers }: Props) {
   async function onSubmit(formdata: FormData) {
     const selectedAnswers = Array.from(formdata.getAll("answer"))
 
-    /**
-     * Return if no value is selected
-     */
-    if (selectedAnswers.length < 1) return
-
     const correctAnswers = answers.filter((answer) => answer.isCorrect).map((answer) => answer.text)
 
     /**
      * If answers are more than 1.
      */
     if (isMultipleCorrect) {
-      const corretAnswerCount = correctAnswers.length
+      const corretAnswersCount = correctAnswers.length
       const selectedAnswerCount = selectedAnswers.length
 
       if (
-        corretAnswerCount === selectedAnswerCount &&
+        corretAnswersCount === selectedAnswerCount &&
         correctAnswers.every((answer) => selectedAnswers.includes(answer))
       ) {
         alert("Correct!")
       } else {
         alert("Incorrect!")
       }
-      return
     } else {
       if (correctAnswers.includes(selectedAnswers[0] as string)) {
         alert("Correct!")
