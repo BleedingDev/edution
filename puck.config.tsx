@@ -7,15 +7,16 @@ import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
 import { CodeInput } from "components/CustomInputs/CodeInput"
 import { Divider } from "components/Divider"
+import { Embed } from "components/Embed"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
+import { Quiz } from "components/Quiz"
 import { Root } from "components/Root"
 import { Spoiler } from "components/Spoiler"
 import { Typography } from "components/Typography"
 import { Video } from "components/Video"
 import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs"
-import { Embed } from "components/Embed";
 
 export const supportedLangs = Object.keys(bundledLanguages) as BuiltinLanguage[]
 
@@ -32,6 +33,7 @@ type PuckProps = {
   CopyText: PropsFrom<typeof CopyText>
   AskLLM: PropsFrom<typeof AskLLM>
   Code: PropsFrom<typeof Code>
+  Quiz: PropsFrom<typeof Quiz>
   Embed: PropsFrom<typeof Embed>
 }
 
@@ -261,18 +263,50 @@ export const config = {
       render: Code,
     },
     Embed: {
+      defaultProps: {
+        src: "https://www.youtube.com/embed/3vAnuqZ8yHg",
+        title: "Sprite Fight",
+        width: 560,
+        height: 315,
+      },
       fields: {
         src: { type: "text" },
         title: { type: "text" },
-        height: { type: "number" },
         width: { type: "number" },
-      },
-
-      defaultProps: {
-        src: "https://www.youtube.com/embed/QH2-TGUlwu4",
-        title: "Youtube",
+        height: { type: "number" },
       },
       render: Embed,
+    },
+    Quiz: {
+      fields: {
+        question: {
+          type: "text",
+        },
+        answers: {
+          type: "array",
+          label: "Options",
+          getItemSummary: (item) => item.text || "New Option",
+          arrayFields: {
+            text: { type: "text" },
+            isCorrect: {
+              type: "radio",
+              label: "status",
+              options: [
+                { label: "correct", value: true },
+                { label: "not correct", value: false },
+              ],
+            },
+          },
+        },
+      },
+      render: Quiz,
+      defaultProps: {
+        question: "What is coursiton",
+        answers: [
+          { text: "Course building platform", isCorrect: true },
+          { text: "An Ecommerce platform", isCorrect: false },
+        ],
+      },
     },
   },
 } satisfies Config<PuckProps>
