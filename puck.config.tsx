@@ -11,6 +11,7 @@ import { Embed } from "components/Embed"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
+import { Novel } from "components/Novel"
 import { Quiz } from "components/Quiz"
 import { Root } from "components/Root"
 import { Spoiler } from "components/Spoiler"
@@ -35,6 +36,7 @@ type PuckProps = {
   Code: PropsFrom<typeof Code>
   Quiz: PropsFrom<typeof Quiz>
   Embed: PropsFrom<typeof Embed>
+  Novel: PropsFrom<typeof Novel>
 }
 
 export const config = {
@@ -307,6 +309,9 @@ export const config = {
           { text: "An Ecommerce platform", isCorrect: false },
         ],
       },
+    },
+    Novel: {
+      render: Novel,
     },
   },
 } satisfies Config<PuckProps>
