@@ -7,6 +7,7 @@ import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
 import { CodeInput } from "components/CustomInputs/CodeInput"
 import { Divider } from "components/Divider"
+import { Embed } from "components/Embed"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
@@ -33,6 +34,7 @@ type PuckProps = {
   AskLLM: PropsFrom<typeof AskLLM>
   Code: PropsFrom<typeof Code>
   Quiz: PropsFrom<typeof Quiz>
+  Embed: PropsFrom<typeof Embed>
 }
 
 export const config = {
@@ -260,7 +262,21 @@ export const config = {
       },
       render: Code,
     },
-
+    Embed: {
+      defaultProps: {
+        src: "https://www.youtube.com/embed/3vAnuqZ8yHg",
+        title: "Sprite Fight",
+        width: 560,
+        height: 315,
+      },
+      fields: {
+        src: { type: "text" },
+        title: { type: "text" },
+        width: { type: "number" },
+        height: { type: "number" },
+      },
+      render: Embed,
+    },
     Quiz: {
       fields: {
         question: {

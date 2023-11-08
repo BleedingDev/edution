@@ -21,16 +21,32 @@ export function Quiz({ question, answers }: Props) {
   const isMultipleCorrect = answers.filter((answer) => answer.isCorrect).length > 1
 
   async function onSubmit(formdata: FormData) {
-    const correctAnswers = answers.filter((answer) => answer.isCorrect).map((answer) => answer.text)
     const selectedAnswers = Array.from(formdata.getAll("answer"))
 
-    const correctCount = correctAnswers.length
-    const selectedCount = selectedAnswers.length
+    const correctAnswers = answers.filter((answer) => answer.isCorrect).map((answer) => answer.text)
 
-    if (correctCount === selectedCount && correctAnswers.every((answer) => selectedAnswers.includes(answer))) {
-      alert("Correct!")
+    /**
+     * If answers are more than 1.
+     */
+    if (isMultipleCorrect) {
+      const corretAnswersCount = correctAnswers.length
+      const selectedAnswerCount = selectedAnswers.length
+
+      if (
+        corretAnswersCount === selectedAnswerCount &&
+        correctAnswers.every((answer) => selectedAnswers.includes(answer))
+      ) {
+        alert("Correct!")
+      } else {
+        alert("Incorrect!")
+      }
+    } else {
+      if (correctAnswers.includes(selectedAnswers[0] as string)) {
+        alert("Correct!")
+      } else {
+        alert("Incorrect!")
+      }
     }
-    alert("Incorrect!")
   }
 
   return (
@@ -55,7 +71,7 @@ export function Quiz({ question, answers }: Props) {
               ))}
             </div>
           ) : (
-            <RadioGroup>
+            <RadioGroup name='answer'>
               {answers.map(({ text }) => (
                 <div className='flex items-center gap-2' key={text?.replaceAll(" ", "")}>
                   <RadioGroupItem value={text} id={text?.replaceAll(" ", "")} required />
