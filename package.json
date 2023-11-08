@@ -41,6 +41,7 @@
     "notion-compat": "^6.16.0",
     "notion-types": "^6.16.0",
     "notion-utils": "^6.16.0",
+    "novel": "^0.1.22",
     "openai": "^4.14.0",
     "p-map": "^6.0.0",
     "p-memoize": "^7.1.1",
