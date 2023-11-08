@@ -6,15 +6,16 @@ import { Audio } from "components/Audio"
 import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
 import { CodeInput } from "components/CustomInputs/CodeInput"
+import { TextEditorInput } from "components/CustomInputs/TextEditorInput"
 import { Divider } from "components/Divider"
 import { Embed } from "components/Embed"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
-import { Novel } from "components/Novel"
 import { Quiz } from "components/Quiz"
 import { Root } from "components/Root"
 import { Spoiler } from "components/Spoiler"
+import { TextEditor } from "components/TextEditor"
 import { Typography } from "components/Typography"
 import { Video } from "components/Video"
 import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs"
@@ -36,7 +37,7 @@ type PuckProps = {
   Code: PropsFrom<typeof Code>
   Quiz: PropsFrom<typeof Quiz>
   Embed: PropsFrom<typeof Embed>
-  Novel: PropsFrom<typeof Novel>
+  TextEditor: PropsFrom<typeof TextEditor>
 }
 
 export const config = {
@@ -310,8 +311,17 @@ export const config = {
         ],
       },
     },
-    Novel: {
-      render: Novel,
+    TextEditor: {
+      fields: {
+        text: {
+          type: "custom",
+          render: TextEditorInput,
+        },
+      },
+      defaultProps: {
+        text: "Hell world",
+      },
+      render: TextEditor,
     },
   },
 } satisfies Config<PuckProps>
