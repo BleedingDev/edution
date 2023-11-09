@@ -3,15 +3,24 @@
 import { Editor } from "novel"
 
 export function TextEditorInput(props) {
-  const { onChange } = props
+  const { value, onChange } = props
+  console.log(value)
 
-  const handleTextInput = (value) => {
+  const handleTextInput = (value?: unknown) => {
     onChange(value)
   }
 
   return (
     <div className='flex flex-col gap-4'>
-      <Editor completionApi='/' editorProps={{ handleTextInput }} />
+      <Editor
+        defaultValue={value.raw}
+        completionApi='/'
+        onDebouncedUpdate={(editor) => {
+          console.log(editor?.storage)
+          handleTextInput({ raw: editor?.storage.markdown.getMarkdown(), html: editor?.getHTML() })
+        }}
+        disableLocalStorage
+      />
     </div>
   )
 }

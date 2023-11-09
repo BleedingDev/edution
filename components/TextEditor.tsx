@@ -1,8 +1,11 @@
 "use client"
 
 interface Props {
-  text: string
+  text: { raw: string; html: string }
 }
+
 export function TextEditor({ text }: Props) {
-  return <div dangerouslySetInnerHTML={{ __html: text }} className='min-h-[400px] bg-red-500' />
+  const __html = text.html?.replaceAll("novel-", "")
+
+  return <div dangerouslySetInnerHTML={{ __html }} className='min-h-min' />
 }

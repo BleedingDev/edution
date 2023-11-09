@@ -319,7 +319,7 @@ export const config = {
         },
       },
       defaultProps: {
-        text: "Hell world",
+        text: { raw: "Hello world", html: "<span>Hello world</span>" },
       },
       render: TextEditor,
     },
