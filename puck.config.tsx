@@ -6,6 +6,7 @@ import { Audio } from "components/Audio"
 import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
 import { CodeInput } from "components/CustomInputs/CodeInput"
+import { TextEditorInput } from "components/CustomInputs/TextEditorInput"
 import { Divider } from "components/Divider"
 import { Embed } from "components/Embed"
 import { Image } from "components/Image"
@@ -14,6 +15,7 @@ import { List } from "components/List"
 import { Quiz } from "components/Quiz"
 import { Root } from "components/Root"
 import { Spoiler } from "components/Spoiler"
+import { TextEditor } from "components/TextEditor"
 import { Typography } from "components/Typography"
 import { Video } from "components/Video"
 import { BuiltinLanguage, bundledLanguages } from "shikiji/index.mjs"
@@ -35,6 +37,7 @@ type PuckProps = {
   Code: PropsFrom<typeof Code>
   Quiz: PropsFrom<typeof Quiz>
   Embed: PropsFrom<typeof Embed>
+  TextEditor: PropsFrom<typeof TextEditor>
 }
 
 export const config = {
@@ -307,6 +310,18 @@ export const config = {
           { text: "An Ecommerce platform", isCorrect: false },
         ],
       },
+    },
+    TextEditor: {
+      fields: {
+        text: {
+          type: "custom",
+          render: TextEditorInput,
+        },
+      },
+      defaultProps: {
+        text: { raw: "Hello world", html: "<span>Hello world</span>" },
+      },
+      render: TextEditor,
     },
   },
   categories: {
