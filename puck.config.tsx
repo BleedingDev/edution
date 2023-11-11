@@ -325,15 +325,22 @@ export const config = {
     },
   },
   categories: {
-    layout: {
-      components: ["Divider", "Spoiler"],
-    },
-    typography: {
-      components: ["Typography"],
+    text: {
+      title: "Text",
+      components: ["TextEditor", "Link", "List", "Typography"],
     },
     interactive: {
-      title: "Actions",
-      components: ["List", "Link", "Button", "CopyText"],
+      title: "Interactive",
+      components: ["Quiz", "Link", "CopyText", "AskLLM"],
+    },
+    media: {
+      title: "Media",
+      components: ["Audio", "Video", "Image", "Embed", "Code"],
+      defaultExpanded: false,
+    },
+    layout: {
+      components: ["Divider", "Spoiler"],
+      defaultExpanded: false,
     },
   },
 } satisfies Config<PuckProps>
