@@ -324,6 +324,25 @@ export const config = {
       render: TextEditor,
     },
   },
+  categories: {
+    text: {
+      title: "Text",
+      components: ["TextEditor", "Link", "List", "Typography"],
+    },
+    interactive: {
+      title: "Interactive",
+      components: ["Quiz", "Link", "CopyText", "AskLLM"],
+    },
+    media: {
+      title: "Media",
+      components: ["Audio", "Video", "Image", "Embed", "Code"],
+      defaultExpanded: false,
+    },
+    layout: {
+      components: ["Divider", "Spoiler"],
+      defaultExpanded: false,
+    },
+  },
 } satisfies Config<PuckProps>
 
 export const getDefaultData = (path: string) => ({
