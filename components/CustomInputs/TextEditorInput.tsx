@@ -1,18 +1,13 @@
 "use client"
 
-import { useState } from "react"
-import { Dialog, DialogContent } from "@shadcn/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger } from "@shadcn/ui/dialog"
 import { Editor } from "novel"
 
 export function TextEditorInput({ value, onChange }) {
-  const [openModal, setOpenModal] = useState(false)
-
   return (
     <div className='rounded-lg border py-2 text-center'>
-      <button onClick={() => setOpenModal(() => true)} className='w-full'>
-        Open Editor
-      </button>
-      <Dialog open={openModal} onOpenChange={() => setOpenModal(false)}>
+      <Dialog>
+        <DialogTrigger className='w-full'>Open Editor</DialogTrigger>
         <DialogContent className='w-full'>
           <Editor
             defaultValue={value.raw}
