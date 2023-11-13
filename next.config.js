@@ -1,7 +1,10 @@
 const withBuilderDevTools = require("@builder.io/dev-tools/next")()
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 /** @type {import('next').NextConfig} */
-module.exports = withBuilderDevTools({
+module.exports = withBundleAnalyzer(withBuilderDevTools({
   reactStrictMode: true,
   transpilePackages: ["ui"],
   images: {
@@ -42,4 +45,4 @@ module.exports = withBuilderDevTools({
 
     return config
   },
-})
+}))

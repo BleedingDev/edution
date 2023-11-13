@@ -9,7 +9,8 @@
     "lint": "next lint",
     "partytown": "partytown copylib public/~partytown",
     "prettier": "prettier --write .",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "analyze": "cross-env ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@builder.io/dev-tools": "^0.2.1",
@@ -17,6 +18,7 @@
     "@builder.io/sdk": "^2.1.1",
     "@measured/puck": "^0.11.3",
     "@measured/puck-plugin-heading-analyzer": "^0.11.3",
+    "@next/bundle-analyzer": "^14.0.2",
     "@notionhq/client": "^2.2.13",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -67,6 +69,7 @@
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "autoprefixer": "^10.4.15",
+    "cross-env": "^7.0.3",
     "eslint": "^8.53.0",
     "eslint-config-next": "^14.0.2",
     "eslint-config-prettier": "^9.0.0",
