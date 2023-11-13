@@ -32,6 +32,13 @@ module.exports = withBuilderDevTools({
       config.resolve.alias.canvas = false
       config.resolve.alias.encoding = false
     }
+    config.module.rules.push({
+      test: /\.m?js$/,
+      type: "javascript/auto",
+      resolve: {
+        fullySpecified: false,
+      },
+    })
 
     return config
   },
