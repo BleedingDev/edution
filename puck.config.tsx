@@ -356,7 +356,7 @@ export const getDefaultData = (path: string) => ({
       },
     },
   ],
-  root: { title: "Demo page" },
+  root: { props: { title: "Demo page" } },
 })
 
 export default config
