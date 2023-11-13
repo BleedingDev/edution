@@ -5,8 +5,8 @@ import { AskLLM } from "components/AskLLM"
 import { Audio } from "components/Audio"
 import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
-import { CodeInput } from "components/CustomInputs/CodeInput"
-import { TextEditorInput } from "components/CustomInputs/TextEditorInput"
+import { CodeInput } from "components/CustomInputs/DynamicCodeInput"
+import { TextEditorInput } from "components/CustomInputs/DynamicTextEditorInput"
 import { Divider } from "components/Divider"
 import { Embed } from "components/Embed"
 import { Image } from "components/Image"
@@ -249,7 +249,7 @@ export const config = {
       fields: {
         code: {
           type: "custom",
-          render: CodeInput,
+          render: CodeInput as any, // TODO: Can't infer the type when dynamically loaded
         },
         showLines: {
           type: "radio",
@@ -315,7 +315,7 @@ export const config = {
       fields: {
         text: {
           type: "custom",
-          render: TextEditorInput,
+          render: TextEditorInput as any, // TODO: Can't infer the type when dynamically loaded
         },
       },
       defaultProps: {
