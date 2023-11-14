@@ -1,4 +1,4 @@
-import { alignClasses, aspect, aspectRatio as twAspectRatio } from "@utils/puckUtils"
+import { alignClasses, aspect, aspectRatio as twAspectRatio } from "@utils/puck/utils"
 
 export function Image({
   src,

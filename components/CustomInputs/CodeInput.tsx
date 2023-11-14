@@ -13,9 +13,9 @@ const highlighter = getHighlighter({
   langs: Object.keys(bundledLanguages),
 })
 
-type InputValues = {raw: string, lang: string, processed: string }
+type InputValues = { raw: string; lang: string; processed: string }
 
-export function CodeInput({ onChange, value }: { value: InputValues, onChange: (values: InputValues) => void }) {
+export function CodeInput({ onChange, value }: { value: InputValues; onChange: (values: InputValues) => void }) {
   const [code, setCode] = useState(value)
 
   useEffect(() => {

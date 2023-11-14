@@ -1,7 +1,7 @@
 import "vidstack/styles/defaults.css"
 import "vidstack/styles/community-skin/video.css"
 
-import { alignClasses, aspect, aspectRatio as twAspectRatio } from "@utils/puckUtils"
+import { alignClasses, aspect, aspectRatio as twAspectRatio } from "@utils/puck/utils"
 import { MediaCommunitySkin, MediaOutlet, MediaPlayer } from "@vidstack/react"
 
 export function Video({
