@@ -1,6 +1,14 @@
 export const textPage = {
   content: [
     {
+      type: "Link",
+      props: {
+        href: "/demo/text/edit",
+        content: "Edit this page",
+        id: "Link-1695576376753",
+      },
+    },
+    {
       type: "Typography",
       props: {
         text: "Text",

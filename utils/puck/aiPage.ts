@@ -3,7 +3,7 @@ export const aiPage = {
     {
       type: "Link",
       props: {
-        href: "/demo/aiedit",
+        href: "/demo/ai/edit",
         content: "Edit this page",
         id: "Link-1695576376753",
       },

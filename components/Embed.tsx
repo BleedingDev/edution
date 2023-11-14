@@ -10,8 +10,8 @@ interface Props {
 export function Embed({ src, title, width, height }: Props) {
   return (
     <iframe
-      referrerPolicy='no-referrer'
       sandbox='allow-forms allow-scripts allow-same-origin'
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       src={src}
       title={title}
       width={`${width ?? 300}px`}
