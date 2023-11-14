@@ -1,5 +1,6 @@
 import type { Config } from "@measured/puck"
-import { selectAspectRatios } from "@utils/puckUtils"
+import { getDemoPage } from "@utils/puck/puckData"
+import { selectAspectRatios } from "@utils/puck/utils"
 import { PropsFrom } from "@utils/types"
 import { AskLLM } from "components/AskLLM"
 import { Audio } from "components/Audio"
@@ -345,18 +346,6 @@ export const config = {
   },
 } satisfies Config<PuckProps>
 
-export const getDefaultData = (path: string) => ({
-  content: [
-    {
-      type: "Link",
-      props: {
-        href: `/demo${path}edit`,
-        content: "Edit this page",
-        id: "Link-1695576376753",
-      },
-    },
-  ],
-  root: { props: { title: "Demo page" } },
-})
+export const getDefaultData = getDemoPage
 
 export default config

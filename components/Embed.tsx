@@ -11,7 +11,7 @@ export function Embed({ src, title, width, height }: Props) {
   return (
     <iframe
       referrerPolicy='no-referrer'
-      sandbox='allow-forms allow-scripts'
+      sandbox='allow-forms allow-scripts allow-same-origin'
       src={src}
       title={title}
       width={`${width ?? 300}px`}

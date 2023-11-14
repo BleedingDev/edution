@@ -1,7 +1,7 @@
 import "vidstack/styles/defaults.css"
 import "vidstack/styles/community-skin/audio.css"
 
-import { alignClasses } from "@utils/puckUtils"
+import { alignClasses } from "@utils/puck/utils"
 import { MediaCommunitySkin, MediaOutlet, MediaPlayer } from "@vidstack/react"
 
 export function Audio({

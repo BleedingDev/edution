@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getPage } from "@utils/puckData"
+import { getPage } from "@utils/puck/puckData"
 
 import { Client } from "./client"
 import resolvePuckPath from "./resolve-puck-path"

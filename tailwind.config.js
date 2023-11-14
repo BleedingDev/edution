@@ -1,4 +1,4 @@
-import { aspectRatio } from "./utils/puckUtils"
+import { aspectRatio } from "./utils/puck/utils"
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
