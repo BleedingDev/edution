@@ -7,9 +7,11 @@ import { Audio } from "components/Audio"
 import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
 import { CodeInput } from "components/CustomInputs/DynamicCodeInput"
+import { ExcalidrawEditor } from "components/CustomInputs/DynamicExcalidrawInput"
 import { TextEditorInput } from "components/CustomInputs/DynamicTextEditorInput"
 import { Divider } from "components/Divider"
 import { Embed } from "components/Embed"
+import { Excalidraw } from "components/Excalidraw"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
@@ -39,6 +41,7 @@ type PuckProps = {
   Quiz: PropsFrom<typeof Quiz>
   Embed: PropsFrom<typeof Embed>
   TextEditor: PropsFrom<typeof TextEditor>
+  Excalidraw: PropsFrom<typeof Excalidraw>
 }
 
 export const config = {
@@ -323,6 +326,21 @@ export const config = {
         text: { raw: "Hello world", html: "<span>Hello world</span>" },
       },
       render: TextEditor,
+    },
+    Excalidraw: {
+      fields: {
+        text: {
+          type: "custom",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          render: ExcalidrawEditor as any,
+        },
+      },
+      defaultProps: {
+        text: {
+          html: "<div>Excalidraw's content</div>",
+        },
+      },
+      render: Excalidraw,
     },
   },
   categories: {
