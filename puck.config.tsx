@@ -337,7 +337,8 @@ export const config = {
       },
       defaultProps: {
         text: {
-          html: "<div>Excalidraw's content</div>",
+          raw: "",
+          html: "<div>Excalidraw's default content</div>",
         },
       },
       render: Excalidraw,
@@ -346,7 +347,7 @@ export const config = {
   categories: {
     text: {
       title: "Text",
-      components: ["TextEditor", "Link", "List", "Typography"],
+      components: ["TextEditor", "Excalidraw", "Link", "List", "Typography"],
     },
     interactive: {
       title: "Interactive",
