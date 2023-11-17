@@ -347,7 +347,7 @@ export const config = {
   categories: {
     text: {
       title: "Text",
-      components: ["TextEditor", "Excalidraw", "Link", "List", "Typography"],
+      components: ["TextEditor", "Link", "List", "Typography"],
     },
     interactive: {
       title: "Interactive",
