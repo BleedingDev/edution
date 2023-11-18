@@ -1,19 +1,11 @@
 "use client"
 
-import Image from "next/image"
-
 interface Props {
-  text: {
-    raw: string
-    html: string
+  diagram: {
+    output: string
   }
 }
 
-export function Excalidraw({ text }: Props) {
-  const canvas = text.raw
-  return canvas ? (
-    <Image src={canvas} width={500} height={500} alt='Coursition - Excalidraw' className='p-6' />
-  ) : (
-    <div dangerouslySetInnerHTML={{ __html: text.html }} />
-  )
+export function Excalidraw({ diagram }: Props) {
+  return <div dangerouslySetInnerHTML={{ __html: diagram.output }} className='min-h-[30px]' />
 }
