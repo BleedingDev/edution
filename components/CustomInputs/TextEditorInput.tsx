@@ -1,29 +1,22 @@
 "use client"
 
-import { Dialog, DialogContent, DialogTrigger } from "@shadcn/ui/dialog"
+import { DialogEditor } from "components/DialogEditor"
 import { Editor } from "novel"
 
 export function TextEditorInput({ value, onChange }) {
   return (
-    <div className='rounded-lg border py-2 text-center'>
-      <Dialog>
-        <DialogTrigger className='w-full'>Open Editor</DialogTrigger>
-
-        <DialogContent className='flex h-[90vh] w-screen max-w-4xl flex-col gap-4'>
-          <span className='mt-2 text-center text-sm'>
-            Text is automatically saved, when you are done, close the editor and continue with building your course.
-          </span>
-          <Editor
-            defaultValue={value.raw}
-            completionApi='/'
-            onDebouncedUpdate={(editor) => {
-              onChange({ raw: editor?.storage.markdown.getMarkdown(), html: editor?.getHTML() })
-            }}
-            disableLocalStorage
-            className='max-h-[90vh] w-full'
-          />
-        </DialogContent>
-      </Dialog>
-    </div>
+    <DialogEditor description='Text is automatically saved, when you are done, close the editor and continue with building your course.'>
+      <div className='h-full w-full'>
+        <Editor
+          defaultValue={value.raw}
+          completionApi='/'
+          onDebouncedUpdate={(editor) => {
+            onChange({ raw: editor?.storage.markdown.getMarkdown(), html: editor?.getHTML() })
+          }}
+          disableLocalStorage
+          className='mx-auto max-w-7xl'
+        />
+      </div>
+    </DialogEditor>
   )
 }
