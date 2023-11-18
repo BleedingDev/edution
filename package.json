@@ -16,6 +16,7 @@
     "@builder.io/dev-tools": "^0.2.1",
     "@builder.io/react": "^3.1.1",
     "@builder.io/sdk": "^2.1.1",
+    "@excalidraw/excalidraw": "^0.17.0",
     "@measured/puck": "^0.11.3",
     "@measured/puck-plugin-heading-analyzer": "^0.11.3",
     "@next/bundle-analyzer": "^14.0.2",

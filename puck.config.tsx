@@ -7,9 +7,11 @@ import { Audio } from "components/Audio"
 import { Code } from "components/Code"
 import { CopyText } from "components/CopyText"
 import { CodeInput } from "components/CustomInputs/DynamicCodeInput"
+import { ExcalidrawEditor } from "components/CustomInputs/DynamicExcalidrawInput"
 import { TextEditorInput } from "components/CustomInputs/DynamicTextEditorInput"
 import { Divider } from "components/Divider"
 import { Embed } from "components/Embed"
+import { Excalidraw } from "components/Excalidraw"
 import { Image } from "components/Image"
 import { Link } from "components/Link"
 import { List } from "components/List"
@@ -39,6 +41,7 @@ type PuckProps = {
   Quiz: PropsFrom<typeof Quiz>
   Embed: PropsFrom<typeof Embed>
   TextEditor: PropsFrom<typeof TextEditor>
+  Excalidraw: PropsFrom<typeof Excalidraw>
 }
 
 export const config = {
@@ -250,6 +253,7 @@ export const config = {
       fields: {
         code: {
           type: "custom",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           render: CodeInput as any, // TODO: Can't infer the type when dynamically loaded
         },
         showLines: {
@@ -316,6 +320,7 @@ export const config = {
       fields: {
         text: {
           type: "custom",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           render: TextEditorInput as any, // TODO: Can't infer the type when dynamically loaded
         },
       },
@@ -323,6 +328,21 @@ export const config = {
         text: { raw: "Hello world", html: "<span>Hello world</span>" },
       },
       render: TextEditor,
+    },
+    Excalidraw: {
+      fields: {
+        diagram: {
+          type: "custom",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          render: ExcalidrawEditor as any,
+        },
+      },
+      defaultProps: {
+        diagram: {
+          output: "",
+        },
+      },
+      render: Excalidraw,
     },
   },
   categories: {
@@ -332,7 +352,7 @@ export const config = {
     },
     interactive: {
       title: "Interactive",
-      components: ["Quiz", "Link", "CopyText", "AskLLM"],
+      components: ["Quiz", "Link", "CopyText", "AskLLM", "Excalidraw"],
     },
     media: {
       title: "Media",
