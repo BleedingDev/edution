@@ -13,7 +13,15 @@ import TweetEmbed from "react-tweet-embed"
 const linkFactory =
   (nested = "") =>
   // eslint-disable-next-line react/display-name
-  (props: PropsFrom<typeof Link>) => <Link {...props} href={`${nested}${props.href}`} />
+  (props: PropsFrom<typeof Link>) => {
+    // ! There is no way of getting title/alt of Notion link with image, but it is necessary to normalize the URLs
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const title: string = (props.children as Record<string, any>)?.props?.children?.[0]?.props?.children?.props?.alt
+    const urlTitle = title?.replaceAll(" ", "-")?.toLowerCase() ?? ""
+    const id = (props.href as string).replaceAll("/", "")
+    const urlSuffix = urlTitle && id ? `/${urlTitle}-${id}` : ""
+    return <Link {...props} href={`${nested}${urlSuffix}`} />
+  }
 
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
@@ -61,13 +69,14 @@ export const NotionPage = ({
   const title = getPageTitle(recordMap)
 
   // useful for debugging from the dev console
-  /*   if (typeof window !== "undefined") {
+  if (typeof window !== "undefined") {
     const keys = Object.keys(recordMap?.block || {})
     const block = recordMap?.block?.[keys[0]]?.value
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const g = window as any
     g.recordMap = recordMap
     g.block = block
-  } */
+  }
 
   const socialDescription = "Coursition glossary"
 

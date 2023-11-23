@@ -1,4 +1,5 @@
-import fs from "fs"
+export const POST = () => {}
+/* import fs from "fs"
 import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 
@@ -19,3 +20,4 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ status: "ok" })
 }
+ */

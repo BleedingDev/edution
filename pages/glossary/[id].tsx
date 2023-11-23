@@ -3,14 +3,15 @@ import type { GetStaticProps } from "next/types"
 import { isDev, previewImagesEnabled, rootDomain, rootNotionPageId, rootNotionSpaceId } from "@utils/notion/config"
 import { NotionPage } from "components/NotionPage"
 import { ExtendedRecordMap } from "notion-types"
-import { getAllPagesInSpace } from "notion-utils"
+import { getAllPagesInSpace, getPageTitle } from "notion-utils"
 import { defaultMapPageUrl } from "react-notion-x"
 import { getPage } from "utils/notion/notion"
 
 import "react-notion-x/src/styles.css"
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pageId = context.params?.id as string
+  const pageUrl = context.params?.id as string
+  const pageId = pageUrl.split("-").at(-1) as string
   const recordMap = await getPage(pageId)
 
   return {
@@ -39,10 +40,10 @@ export async function getStaticPaths() {
     traverseCollections: false,
   })
 
-  const paths = Object.keys(pages)
-    .map((pageId) => mapPageUrl(pageId))
-    .filter((path) => path && path !== "/")
-    .map((path) => `/glossary${path}`)
+  const paths = Object.entries(pages)
+    .map(([key, page]) => (page && key ? [mapPageUrl(key), getPageTitle(page)] : ["", ""]))
+    .filter(([id, title]) => id && title && title !== "Glossary")
+    .map(([id, path]) => `/glossary/${path.toLowerCase().replaceAll(" ", "-")}-${id.replaceAll("/", "")}`)
 
   return {
     paths,
