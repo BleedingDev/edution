@@ -63,6 +63,7 @@
   "devDependencies": {
     "@builder.io/partytown": "^0.8.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/eslint": "^8.44.7",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",

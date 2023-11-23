@@ -16,7 +16,8 @@ export function Client({ path, isEdit }: { path: string; dataBE?: Data | null; i
       const dataStr = localStorage.getItem(key)
 
       if (dataStr) {
-        return JSON.parse(dataStr)
+        // TODO: Validate data
+        return JSON.parse(dataStr) as Data
       }
     }
     const defaultData = getDefaultData(path)
