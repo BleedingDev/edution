@@ -16,8 +16,11 @@ const linkFactory =
   (props: PropsFrom<typeof Link>) => {
     // ! There is no way of getting title/alt of Notion link with image, but it is necessary to normalize the URLs
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const title: string = (props.children as Record<string, any>)?.props?.children?.[0]?.props?.children?.props?.alt
-    const urlTitle = title?.replaceAll(" ", "-")?.toLowerCase() ?? ""
+    const alt: string = (props.children as Record<string, any>)?.props?.children?.[0]?.props?.children?.props?.alt
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const title: string = (props.children as Record<string, any>)?.props?.children?.[1]?.props?.children?.[0]?.props
+      ?.children?.props?.block?.properties?.title[0][0]
+    const urlTitle = (alt ?? title)?.replaceAll(" ", "-")?.toLowerCase() ?? ""
     const id = (props.href as string).replaceAll("/", "")
     const urlSuffix = urlTitle && id ? `/${urlTitle}-${id}` : ""
     return <Link {...props} href={`${nested}${urlSuffix}`} />
