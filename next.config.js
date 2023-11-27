@@ -28,6 +28,7 @@ module.exports = withBundleAnalyzer(
     },
     experimental: {
       nextScriptWorkers: true,
+      esmExternals: "loose",
     },
     webpack(config, { isServer }) {
       // https://github.com/wojtekmaj/react-pdf/issues/799
