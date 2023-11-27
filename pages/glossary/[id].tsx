@@ -3,7 +3,7 @@ import type { GetStaticProps } from "next/types"
 import { isDev, previewImagesEnabled, rootDomain, rootNotionPageId, rootNotionSpaceId } from "@utils/notion/config"
 import { NotionPage } from "components/NotionPage"
 import { ExtendedRecordMap } from "notion-types"
-import { getAllPagesInSpace, getPageTitle } from "notion-utils"
+import { getAllPagesInSpace, getPageTitle, normalizeTitle } from "notion-utils"
 import { defaultMapPageUrl } from "react-notion-x"
 import { getPage } from "utils/notion/notion"
 
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
   const paths = Object.entries(pages)
     .map(([key, page]) => (page && key ? [mapPageUrl(key), getPageTitle(page)] : ["", ""]))
     .filter(([id, title]) => id && title && title !== "Glossary")
-    .map(([id, path]) => `/glossary/${path.toLowerCase().replaceAll(" ", "-")}-${id.replaceAll("/", "")}`)
+    .map(([id, path]) => `/glossary/${normalizeTitle(path)}-${id.replaceAll("/", "")}`)
 
   return {
     paths,

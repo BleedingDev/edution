@@ -1,12 +1,12 @@
 import * as React from "react"
 import dynamic from "next/dynamic"
 import Head from "next/head"
-// import Image from 'next/image'
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { PropsFrom } from "@utils/types"
 import { ExtendedRecordMap } from "notion-types"
-import { getPageTitle } from "notion-utils"
+import { getPageTitle, normalizeTitle } from "notion-utils"
 import { NotionRenderer } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
@@ -20,7 +20,7 @@ const linkFactory =
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const title: string = (props.children as Record<string, any>)?.props?.children?.[1]?.props?.children?.[0]?.props
       ?.children?.props?.block?.properties?.title[0][0]
-    const urlTitle = (alt ?? title)?.replaceAll(" ", "-")?.toLowerCase() ?? ""
+    const urlTitle = normalizeTitle(alt ?? title)
     const id = (props.href as string).replaceAll("/", "")
     const urlSuffix = urlTitle && id ? `/${urlTitle}-${id}` : `/${id}`
     return <Link {...props} href={`${nested}${urlSuffix}`} />
@@ -123,7 +123,7 @@ export const NotionPage = ({
         previewImages={previewImagesEnabled}
         components={{
           // ? NOTE (transitive-bullshit 3/12/2023): I'm disabling next/image for this repo for now because the amount of traffic started costing me hundreds of dollars a month in Vercel image optimization costs. I'll probably re-enable it in the future if I can find a better solution.
-          // nextImage: Image,
+          nextImage: Image,
           nextLink: Link,
           PageLink: NestedLink,
           Collection,
@@ -131,6 +131,7 @@ export const NotionPage = ({
           Pdf,
           Modal,
           Tweet,
+          Image,
         }}
 
         // NOTE: custom images will only take effect if previewImages is true and
