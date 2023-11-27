@@ -22,7 +22,7 @@ const linkFactory =
       ?.children?.props?.block?.properties?.title[0][0]
     const urlTitle = (alt ?? title)?.replaceAll(" ", "-")?.toLowerCase() ?? ""
     const id = (props.href as string).replaceAll("/", "")
-    const urlSuffix = urlTitle && id ? `/${urlTitle}-${id}` : ""
+    const urlSuffix = urlTitle && id ? `/${urlTitle}-${id}` : `/${id}`
     return <Link {...props} href={`${nested}${urlSuffix}`} />
   }
 
